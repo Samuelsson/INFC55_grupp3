@@ -20,12 +20,19 @@
 
 	html {
 		height: 100%;
-		width: 100%;
 	}
 
 	body {
 		height: 100%;
-		width: 100%;
+		margin: 0;
+
+		background-color: #eee;
+	}
+
+	/* This class is the creme de la creme of the responiveness of the site */
+	.container {
+		width: 1200px;
+		margin: 0 auto;
 	}
 
 
