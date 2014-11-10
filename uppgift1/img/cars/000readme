@@ -1,0 +1,13 @@
+Vi namnger bilderna i nummerordning, från 1 till 20.
+
+Enligt denna modell:
+1small.jpg
+1medium.jpg
+1large.jpg
+
+Hela vägen till 20large.jpg
+
+Då vi inte ska använda CSS och annat så får vi ändra storleken på bilderna själva.
+Bredden på nsmall.jpg är 300 pixlar.
+Bredden på de övriga bilderna (nmedium.jpg och nlarge.jpg) är 728 pixlar.
+
