@@ -1,5 +1,7 @@
 # INFC55 Grupp 3
 
+Look ma'!!! I'm on GitHub!
+
 ## Nyttiga länkar
 
 W3Schools var rätt dålig innan, bättre nu men inte bäst.  
