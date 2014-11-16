@@ -7,6 +7,7 @@
 	Table of Contents
 =============================================================================================
 	:: General
+	:: Fonts
 	:: Header
 	:: Navigation
 	:: Section - General
@@ -54,6 +55,8 @@
 	}
 
 	img {
+
+		/* This makes all images responsive */
 		max-width: 100%;
 		height: auto;
 	}
@@ -61,10 +64,26 @@
 
 
 /* ==========================================================================================
+	Fonts
+============================================================================================= */
+
+	body {
+		font-family: sans-serif;
+		color: #333;
+	}
+
+
+/* ==========================================================================================
 	Header
 ============================================================================================= */
 
 	header {
+		padding: 25px 0;
+		text-align: center;
+	}
+
+	#logo {
+		font-size: 32px;
 	}
 
 
@@ -74,9 +93,34 @@
 ============================================================================================= */
 
 	nav {
+		margin: 0;
+		padding: 0;
 	}
 
-	#navbar {
+	.navbar {
+		background-color: #fff;
+	}
+
+	.navbar ul {
+		list-style: none;
+		text-align: center;
+		padding: 0;
+		margin: 0;
+	}
+
+	.navbar li {
+		display: inline-block;
+		padding: 10px;
+		color: #333;
+	}
+
+	.navbar ul li a {
+		text-decoration: none;
+	}
+
+	.navbar ul li:hover {
+		background-color: #eee;
+		color: #000;
 	}
 
 
@@ -94,4 +138,8 @@
 ============================================================================================= */
 
 	footer {
+		margin-top: 50px;
+		padding: 50px 0;
+		text-align: center;
+		background-color: #fff;
 	}
