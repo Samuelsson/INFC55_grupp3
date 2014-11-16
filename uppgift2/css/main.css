@@ -35,21 +35,15 @@
 		padding-left: 10px;
 	}
 
-	@media (min-width: 600px) {
+	@media (min-width: 700px) {
 		.container {
-			width: 580px;
+			width: 680px;
 		}
 	}
 
-	@media (min-width: 900px) {
+	@media (min-width: 1000px) {
 		.container {
-			width: 880px;
-		}
-	}
-
-	@media (min-width: 1200px) {
-		.container {
-			width: 1180px;
+			width: 980px;
 		}
 	}
 
