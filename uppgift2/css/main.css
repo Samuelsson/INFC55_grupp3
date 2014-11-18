@@ -6,6 +6,7 @@
 /* ==========================================================================================
 	Table of Contents
 =============================================================================================
+	:: Normalize
 	:: General
 	:: Fonts
 	:: Header
@@ -16,42 +17,52 @@
 
 
 /* ==========================================================================================
+	Normalize
+============================================================================================= */
+
+	article,
+	aside,
+	details,
+	figcaption,
+	figure,
+	footer,
+	header,
+	hgroup,
+	menu,
+	nav,
+	section { 
+	    display: block;
+	}
+
+	html,
+	body {
+		height: 100%;
+		width: 100%;
+		margin: 0;
+	}
+
+
+/* ==========================================================================================
 	General
 ============================================================================================= */
 
-	html {
-		height: 100%;
-	}
-
 	body {
-		height: 100%;
-		margin: 0;
 		background-color: #ededed;
 	}
 
 	.container {
+		width: 1200px;
 		margin: 0 auto;
-		padding-right: 10px;
-		padding-left: 10px;
+
+		/* This makes the absolute position of the #content work (if used) */
+		position: relative;
 	}
 
-	/* These media queries fix the responsiveness of the site */
-	@media (min-width: 600px) {
-		.container {
-			width: 580px;
-		}
-	}
-
-	@media (min-width: 900px) {
-		.container {
-			width: 880px;
-		}
-	}
-
-	@media (min-width: 1200px) {
-		.container {
-			width: 1080px;
-		}
+	/* This clears the next elements of the floating */
+	.clearfix:after {
+		content: "";
+		display: table;
+		clear: both;
 	}
 
 	img {
@@ -60,7 +71,6 @@
 		max-width: 100%;
 		height: auto;
 	}
-
 
 
 /* ==========================================================================================
@@ -96,7 +106,6 @@
 	}
 
 
-
 /* ==========================================================================================
 	Navigation
 ============================================================================================= */
@@ -108,6 +117,7 @@
 
 	.navbar {
 		background-color: #fff;
+		margin-bottom: 50px;
 	}
 
 	.navbar ul {
@@ -133,12 +143,31 @@
 	}
 
 
-
 /* ==========================================================================================
-	Sections General
+	Sidebars
 ============================================================================================= */
 
-	section {
+	.sidebar {
+		width: 250px;
+	}
+
+	#sidebar-left {
+		float: left;
+	}
+
+	#sidebar-right {
+		float: right;
+	}
+
+
+/* ==========================================================================================
+	Main Content
+============================================================================================= */
+
+	#content {
+		float: left;
+		width: 700px;
+		left: 250px;
 	}
 
 
