@@ -7,3 +7,9 @@ function login()
 			document.getElementById("login_box").innerHTML = "Logged in User: " + login_name; //If a name have been entered, send it to #loginbox
 		}
 }
+
+function formCheck()
+
+{
+	
+}
