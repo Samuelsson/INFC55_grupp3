@@ -25,10 +25,21 @@ function getCookie(name)
 	return false;
 }
 
-/*
-function formCheck()
 
+function formChoice()
+{
+	if(document.referrer.search("flight") != -1) //Show flight options
+	{
+		document.getElementById("formInputAllergies").setAttribute("type", "text");
+		alert(document.referrer);
+	}
+	else if(document.referrer.search("boat") != -1) //Show boat options
+	{
+
+	}
+}
+
+function formCheck()
 {
 
 }
-*/
