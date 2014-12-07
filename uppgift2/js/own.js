@@ -66,9 +66,22 @@ function getFormValue(name)
 	var search = values.split("&" + name + "=")
 	
 	if(search.length > 1)
-	return search.pop().split("&").shift().replace("%40", "@"); // gets the right part of the array and fix and email-string
+	return barToText(search.pop().split("&").shift()) // gets the right part of the array and fix and email-string
 	else
 	return "NULL";	
+}
+
+function barToText(text)
+{
+	text = text.replace(/%C3%A5/g, "å");
+	text = text.replace(/%C3%A4/g, "ä");
+	text = text.replace(/%C3%B6/g, "ö");
+	text = text.replace(/%C3%85/g, "Å");
+	text = text.replace(/%C3%84/g, "Ä");
+	text = text.replace(/%C3%96/g, "Ö");
+	text = text.replace(/%40/g, "@");
+	text = text.replace(/\+/g, "")
+	return text;
 }
 
 function toggleContrast()
@@ -136,3 +149,5 @@ function changeTextSize(sizeChange)
 
 	document.querySelector("#subtitle").style.fontSize= "21px";
 }
+
+
