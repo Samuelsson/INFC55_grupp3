@@ -20,22 +20,21 @@ function getCookie(name)
 	var cookies = "; " + document.cookie;
 	var values = cookies.split("; " + name + "="); //Split the array in two right before the attr. value.
 	if(values.length > 1) //Checks that the cookie can be found
-	return values.pop().split(";").shift(); //Return the second part of the array, split it to isolate the value, get the first value.
+	return values.pop().split(";").shift(); //Break out the last part of the array, split it to isolate the value, return the first part.
 	else
 	return false;
 }
 
 
+//Sets what formfields will be shown based on the referrer.
 function formChoice()
 {
-	if(document.referrer.search("flight") != -1) //Show flight options
+	if(document.referrer.search("flight") != -1) //Show flight options if the string "flight" is in the referrer
 	{
 		document.getElementById("formInputAllergies").setAttribute("type", "text");
 		alert(document.referrer);
 	}
-	else if(document.referrer.search("boat") != -1) //Show boat options
-	{
-
+	else if(document.referrer.search("boat") != -1) //Show boat options if the string "boat" is in the referrer
 	}
 }
 
