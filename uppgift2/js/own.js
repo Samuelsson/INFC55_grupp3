@@ -31,10 +31,12 @@ function formChoice()
 {
 	if(document.referrer.search("flight") != -1) //Show flight options if the string "flight" is in the referrer
 	{
-		document.getElementById("formInputAllergies").setAttribute("type", "text");
-		alert(document.referrer);
+		document.getElementById("formAllergiesToggle").style.display = 'block';
+		document.getElementById("formDiseaseToggle").style.display = 'block';
 	}
 	else if(document.referrer.search("boat") != -1) //Show boat options if the string "boat" is in the referrer
+	{
+		document.getElementById("formSwimToggle").style.display = 'block';
 	}
 }
 

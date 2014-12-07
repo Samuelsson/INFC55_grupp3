@@ -162,9 +162,23 @@
 						</select>
 					</div>
 
-					<div class="form-group">
-						<label for="formInputEmail">Allergies</label>
-						<input type="hidden" class="form-control" id="formInputAllergies" placeholder="e.g peanuts">
+					<div class="form-group" id="formAllergiesToggle" style= "display: none;">
+						<label for="formInputAllergies">Allergies</label>
+						<input type="text" class="form-control" id="formInputAllergies" placeholder="e.g peanuts">
+					</div>
+
+					<div class="form-group" id="formDiseaseToggle" style= "display: none;">
+						<label for="formInputAllergies">Infectious Diseases</label>
+						<input type="text" class="form-control" id="formInputDiseases" placeholder="e.g ebola">
+					</div>
+
+					<div class="form-group" id="formSwimToggle" style= "display: none;">
+					<label for="name">Swimming ability</label>
+						<div class="radio">
+							<label class="radio"><input type="radio" name="swim" id="formInputSwim_No" checked value="0">None</label>
+							<label class="radio"><input type="radio" name="swim" id="formInputSwim_200" value="200">200m</label>
+							<label class="radio"><input type="radio" name="swim" id="formInputSwim_1000" value="1000">1km</label>
+						</div>
 					</div>
 
 					<button type="submit" class="btn btn-default">Submit</button>
