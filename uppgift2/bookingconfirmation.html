@@ -107,104 +107,22 @@
 
 			<section class="col-sm-6" id="main-content">
 
-				<h2>Travel booking</h2>
+				<h2>Booking confirmation</h2>
+				Your booking have been registered. <br />
 
-				<form role="form" onsubmit="return formCheck()" method="GET" action="bookingconfirmation.html">
 
-					<div class="form-group">
-						<label for="formInputName">Name *</label>
-						<input name="name" type="text" class="form-control" id="formInputName" placeholder="e.g John Anderson">
-					</div>
-
-					<div class="row">
-						<div class="col-md-6">
-							<div class="form-group">
-								<label for="formInputStreet">Street</label>
-								<input name="street" type="text" class="form-control" id="formInputStreet" placeholder="e.g Fifth Avenue 23B">
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="form-group">
-								<label for="formInputAreaCode">Area Code</label>
-								<input name="areacode" type="text" class="form-control" id="formInputAreaCode" placeholder="e.g Sweden">
-							</div>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-md-6">
-							<div class="form-group">
-								<label for="formInputCity">City</label>
-								<input name="city" type="text" class="form-control" id="formInputCity" placeholder="e.g Los Angeles">
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="form-group">
-								<label for="formInputCountry">Country</label>
-								<input name="country" type="text" class="form-control" id="formInputCountry" placeholder="e.g Sweden">
-							</div>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="formInputEmail">E-Mail *</label>
-						<input name="email" type="email" class="form-control" id="formInputEmail" placeholder="e.g hello@domain.com">
-					</div>
-
-					<div class="form-group">
-						<label for="formInputDestination">Destination</label>
-						<input disabled="disabled" name="destination" type="text" class="form-control" id="formInputDestination">
-						<script type="text/javascript">document.getElementById("formInputDestination").value = getFormValue("destination")</script>
-					</div>
-
-					<div class="form-group">
-						<label for="formInputDeparture">Departure date</label>
-						<input name="departure" type="text" class="form-control" id="formInputDeparture" placeholder="e.g 2015-09-01">
-					</div>
-
-					<div class="form-group">
-						<label for="formInputReturn">Return date</label>
-						<input name="return" type="text" class="form-control" id="formInputReturn" placeholder="e.g 2015-09-10">
-					</div>
-
-					<div class="form-group">
-						<label>Purpose *</label>
-						<select name="purpose" id="formInputPurpose"  class="form-control">
-							<option>Conference</option>
-							<option>Seminary</option>
-							<option>Excursion</option>
-							<option>Lecture</option>
-							<option>Training</option>
-						</select>
-					</div>
-
-					<div class="form-group" name="allergies"  id="formAllergiesToggle" style= "display: none;">
-						<label for="formInputAllergies">Allergies</label>
-						<input type="text" class="form-control" id="formInputAllergies" placeholder="e.g peanuts">
-					</div>
-
-					<div class="form-group" name="disease" id="formDiseaseToggle" style= "display: none;">
-						<label for="formInputAllergies">Infectious Diseases</label>
-						<input type="text" class="form-control" id="formInputDiseases" placeholder="e.g ebola">
-					</div>
-
-					<div class="form-group" id="formSwimToggle" style= "display: none;">
-					<label for="name">Swimming ability</label>
-						<div class="radio">
-							<label class="radio"><input type="radio" name="swim" id="formInputSwim_No" checked value="0">None</label>
-							<label class="radio"><input type="radio" name="swim" id="formInputSwim_200" value="200">200m</label>
-							<label class="radio"><input type="radio" name="swim" id="formInputSwim_1000" value="1000">1km</label>
-						</div>
-					</div>
-
-					<input type="hidden" name="price" id="formInputPrice">
-					<script type="text/javascript">document.getElementById("formInputPrice").value = getFormValue("price")</script>
-
-					<button type="submit" class="btn btn-default">Submit</button>
-
-				</form>
-
-				<script type="text/javascript">formChoice()</script>
+				<p>
+				<script type="text/javascript">
+				document.write("<strong>Name: </strong>" + getFormValue("name"))
+				document.write("<br /><strong>Address: </strong><br />" + getFormValue("street") + "<br />" + getFormValue("areacode") + " " + getFormValue("city") )
+				document.write("<br /><strong>Email: </strong>" + getFormValue("email").replace("%40", "@"))
+				document.write("<br /><strong>Departure: </strong>" + getFormValue("departure"))
+				document.write("<br /><strong>Return: </strong>" + getFormValue("return"))
+				document.write("<br /><strong>Destination: </strong>" + getFormValue("destination"))
+				document.write("<br /><strong>Price: </strong>" + getFormValue("price"))
+				document.write("<br /><strong>Purpose: </strong>" + getFormValue("purpose"))
+				</script>
+				</p>
 			
 			</section>
 

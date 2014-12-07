@@ -40,7 +40,33 @@ function formChoice()
 	}
 }
 
+//Kontrollerar att samtliga fält som krävs är ifylda korrekt.
 function formCheck()
 {
+	if
+	( 	
+		document.getElementById("formInputName").value.length < 2 
+		|| 
+		document.getElementById("formInputEmail").value.length < 4 
+		|| 
+		document.getElementById("formInputDeparture").value.length < 4
+		|| 
+		document.getElementById("formInputReturn").value.length < 4
+	)
+	
+	{
+		alert("Ni måste fylla i samtliga fält markerade med *");
+		return false;
+	}
+}
 
+function getFormValue(name)
+{
+	var values = "&" + window.location.search.substring(1);
+	var search = values.split("&" + name + "=")
+	
+	if(search.length > 1)
+	return search.pop().split("&").shift().replace("%40", "@");
+	else
+	return "NULL";	
 }
