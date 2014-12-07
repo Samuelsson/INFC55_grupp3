@@ -15,6 +15,12 @@ function checkLogin()
 	document.getElementById("login_box").innerHTML = "Logged in User: " + getCookie("userName");
 }
 
+function logout()
+{
+	document.cookie = "userName=" + getCookie("userName") + "; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT";
+	document.getElementById("login_box").innerHTML = "Login";
+}
+
 function getCookie(name)
 {
 	var cookies = "; " + document.cookie;
@@ -149,5 +155,7 @@ function changeTextSize(sizeChange)
 
 	document.querySelector("#subtitle").style.fontSize= "21px";
 }
+
+
 
 
