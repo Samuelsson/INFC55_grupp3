@@ -4,7 +4,7 @@ function login()
 	var login_name = prompt("Enter login name");
 	if (login_name.length > 0) 
 	{
-		document.cookie = "userName=" + login_name + "; path=/";
+		document.cookie = "userName=" + login_name + "; path=/"; //Sets a session cookie with the login name
 		checkLogin();
 	}
 }
@@ -12,7 +12,7 @@ function login()
 function checkLogin()
 {
 	if (getCookie("userName"))
-	document.getElementById("login_box").innerHTML = "Logged in User: " + getCookie("userName"); 
+	document.getElementById("login_box").innerHTML = "Logged in User: " + getCookie("userName");
 }
 
 function getCookie(name)
@@ -66,7 +66,73 @@ function getFormValue(name)
 	var search = values.split("&" + name + "=")
 	
 	if(search.length > 1)
-	return search.pop().split("&").shift().replace("%40", "@");
+	return search.pop().split("&").shift().replace("%40", "@"); // gets the right part of the array and fix and email-string
 	else
 	return "NULL";	
+}
+
+function toggleContrast()
+{
+	if(getCookie("highContrast")  == "true")
+		document.cookie = "highContrast=false; path='/'";
+	else
+		document.cookie = "highContrast=true; path='/'";
+	checkStyle();
+}
+
+function toggleTextSize()
+{
+
+	console.log(getCookie("textSize"));
+
+	if(getCookie("textSize")  == "large")
+		document.cookie = "textSize=small; path='/'";
+	else //Default utan cookie
+		document.cookie = "textSize=large; path='/'";
+	checkStyle();
+}
+
+function checkStyle()
+{
+	if(getCookie("highContrast")  == "true")
+	{
+		document.body.style.background = "#ededed";
+		document.querySelector("#jumbo").style.background = "#ededed";
+		document.querySelector("footer").style.background = "#fafafa";
+		changeTextContrast("#333333");
+	}
+	else
+	{
+		document.body.style.background = "white";
+		document.querySelector("#jumbo").style.background = "white";
+		document.querySelector("footer").style.background = "white";
+		changeTextContrast("#000000");
+	}
+
+	if (getCookie("textSize")  == "small") 
+		changeTextSize("14px");
+	else
+		changeTextSize("150%");
+		
+}
+
+	
+
+function changeTextContrast(color)
+{
+	var p = document.querySelectorAll("p, h1, h2, .top-logo");
+
+	for (var i = p.length - 1; i >= 0; i--) 
+		p[i].style.color = color;
+}
+
+function changeTextSize(sizeChange)
+{
+	var p = document.querySelectorAll("p, nav");
+
+	
+		for (var i = p.length - 1; i >= 0; i--) 
+			p[i].style.fontSize = sizeChange;
+
+	document.querySelector("#subtitle").style.fontSize= "21px";
 }
