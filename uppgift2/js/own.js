@@ -116,15 +116,19 @@ function checkStyle()
 	if(getCookie("highContrast")  == "true")
 	{
 		document.body.style.background = "#ededed";
-		document.querySelector("#jumbo").style.background = "#ededed";
+		var obje = document.querySelector("#jumbo");
+		if(obje != null)
+			document.querySelector(".jumbotron").style.background = "#ededed";
 		document.querySelector("footer").style.background = "#fafafa";
 		changeTextContrast("#333333");
 	}
 	else
 	{
-		document.body.style.background = "white";
-		document.querySelector("#jumbo").style.background = "white";
-		document.querySelector("footer").style.background = "white";
+		document.body.style.background = "#FFFFFF";
+		var obje = document.querySelector("#jumbo");
+		if(obje != null)
+		document.querySelector("#jumbo").style.background = "#FFFFFF";
+		document.querySelector("footer").style.background = "#FFFFFF";
 		changeTextContrast("#000000");
 	}
 
@@ -153,6 +157,8 @@ function changeTextSize(sizeChange)
 		for (var i = p.length - 1; i >= 0; i--) 
 			p[i].style.fontSize = sizeChange;
 
+	var obje = document.querySelector("#subtitle");
+		if(obje != null)
 	document.querySelector("#subtitle").style.fontSize= "21px";
 }
 
