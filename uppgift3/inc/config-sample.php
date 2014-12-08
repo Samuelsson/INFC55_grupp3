@@ -3,12 +3,16 @@
 /*	
  *	CONFIG FILE
  *
- *	This is where we store all our configuration files.
+ *
+ *	RENAME THIS FILE TO config.php AND ENTER CORRECT CREDENTIALS
+ *
+ *
+ *	This is where we store all our configurationS.
  *	Connections to the database for example.
  *
  *	Keep in mind that this file saves all passwords in plain text.
  *	So we should not upload this to GitHub ;)
- *	Preferably we should edit our .htaccess or keep this file outside the root folder.
+ *	Preferably we should edit our .htaccess or even keep this file outside the root folder.
  */
 
 /* ==|== Database ===============================================================================
@@ -19,13 +23,13 @@
 	define('DB_HOST', 'localhost');
 	
 	//	The name of the database:
-	define('DB_NAME', 'infc55');
+	define('DB_NAME', '');
 	
 	// The username of the user who has access to the database:
-	define('DB_USER', 'infc55');
+	define('DB_USER', '');
 	
 	// The password for the user:
-	define('DB_PASS', 'zB3xVdupJCUvvVz5'); // This is just a test password in a test environment - so no luck for you :)
+	define('DB_PASS', ''); // This is just a test password in a test environment - so no luck for you :)
 
 
 /* ==|== Misc ===================================================================================
