@@ -93,9 +93,9 @@ function barToText(text)
 function toggleContrast()
 {
 	if(getCookie("highContrast")  == "true")
-		document.cookie = "highContrast=false; path='/'";
+		document.cookie = "highContrast=false; path=/";
 	else
-		document.cookie = "highContrast=true; path='/'";
+		document.cookie = "highContrast=true; path=/";
 	checkStyle();
 }
 
