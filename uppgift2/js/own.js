@@ -162,8 +162,19 @@ function changeTextSize(sizeChange)
 	document.querySelector("#subtitle").style.fontSize= "21px";
 }
 
+function truncateText(text)
+{
+	if(text.length > 203)
+	{
+		document.write("<div id='truncated'>" + text.substring(0, 201) + "... <br /> <a href='#' onclick='expandText()'>More</a></div>");
+		document.write("<div id='truncatedOriginal' style='display: none;'>" + text + "</div>");
+	}
+	else
+		document.write(text);
+}
 
-
-
-
-
+function expandText()
+{
+	document.querySelector("#truncated").style.display = "none";
+	document.querySelector("#truncatedOriginal").style.display = "block";
+}
