@@ -93,9 +93,9 @@ function barToText(text)
 function toggleContrast()
 {
 	if(getCookie("highContrast")  == "true")
-		document.cookie = "highContrast=false; path='/'";
+		document.cookie = "highContrast=false; path=/";
 	else
-		document.cookie = "highContrast=true; path='/'";
+		document.cookie = "highContrast=true; path=/";
 	checkStyle();
 }
 
@@ -105,9 +105,9 @@ function toggleTextSize()
 	console.log(getCookie("textSize"));
 
 	if(getCookie("textSize")  == "large")
-		document.cookie = "textSize=small; path='/'";
+		document.cookie = "textSize=small; path=/";
 	else //Default utan cookie
-		document.cookie = "textSize=large; path='/'";
+		document.cookie = "textSize=large; path=/";
 	checkStyle();
 }
 
