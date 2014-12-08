@@ -29,7 +29,7 @@
 	function db_handle() {
 		try {
 
-			$DBH = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME."", DB_USER, DB_PASS); // The PDO object for db connection.
+			$DBH = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASS); // The PDO object for db connection.
 			$DBH->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, 1); // Attributes added to the PDO object.
 			$DBH->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // Error attributes, if there is an error. Debugging etc.
 			return $DBH;
