@@ -1,4 +1,5 @@
 <?php
+	require_once('inc/config.php');
 	require_once('inc/functions.php');
 	get_header();
 ?>
@@ -10,7 +11,11 @@
 		<div class="row">
 
 			<section class="col-xl-12">
-			<p>content goes here</p>
+
+			<?php
+				$DBH = db_handle(); // Just for testing the db connection.
+			?>
+
 			</section>
 
 		</div>

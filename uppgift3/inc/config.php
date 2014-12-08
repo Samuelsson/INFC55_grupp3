@@ -19,13 +19,13 @@
 	define('DB_HOST', 'localhost');
 	
 	//	The name of the database:
-	define('DB_NAME', '');
+	define('DB_NAME', 'infc55');
 	
 	// The username of the user who has access to the database:
-	define('DB_USER', '');
+	define('DB_USER', 'infc55');
 	
 	// The password for the user:
-	define('DB_PASS', '');
+	define('DB_PASS', 'zB3xVdupJCUvvVz5'); // This is just a test password in a test environment - so no luck for you :)
 
 
 /* ==|== Misc ===================================================================================
