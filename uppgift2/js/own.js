@@ -105,9 +105,9 @@ function toggleTextSize()
 	console.log(getCookie("textSize"));
 
 	if(getCookie("textSize")  == "large")
-		document.cookie = "textSize=small; path='/'";
+		document.cookie = "textSize=small; path=/";
 	else //Default utan cookie
-		document.cookie = "textSize=large; path='/'";
+		document.cookie = "textSize=large; path=/";
 	checkStyle();
 }
 
