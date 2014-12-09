@@ -2,6 +2,20 @@
 	====================================================================== -->
 
 	<footer>
+		<div class="container">
+			<div class="row">
+
+				<div class="col-lg-12">
+					<p>&copy; Group3 2014 <br>
+					Created by Group 3 as a school project in INFC55</p>
+				</div>
+
+				<div class="col-lg-12 back-to-top">
+					<a href="#">&and; <br>Take me to the top</a>
+				</div>
+
+			</div>
+		</div>
 	</footer>
 
 	<!-- Post site Javascripts

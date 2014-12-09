@@ -1,1 +1,1 @@
-SQLSTATE[42000] [1044] Access denied for user ''@'localhost' to database 'd36234_db3'
+SQLSTATE[28000] [1045] Access denied for user 'biKA7Gqk'@'localhost' (using password: YES)SQLSTATE[28000] [1045] Access denied for user 'biKA7Gq'@'localhost' (using password: YES)

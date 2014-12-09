@@ -9,7 +9,7 @@
 	<div class="container">
 		<div class="row">
 
-			<section class="col-xl-12">
+			<section class="col-lg-12">
 
 			<?php
 				$DBH = db_handle(); // Just for testing the db connection.

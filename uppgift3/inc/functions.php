@@ -28,13 +28,13 @@
 	All database related.
    ============================================================================================== */
 	
-	// The function for the database connection and quering/execute. 
+	// The main function for the database connection and quering/executing. 
 	function db_handle() {
 		try {
-			$DBH = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASS); // The PDO object for db connection.
-			$DBH->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, 1); // Attributes added to the PDO object.
-			$DBH->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Error attributes, if there is an error. Debugging etc.
-			return $DBH;
+			$dbh = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASS); // Creating the PDO object for db connection.
+			$dbh->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, 1); // Extra attributes added to the PDO object.
+			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Error attributes, if there is an error. Debugging etc.
+			return $dbh;
 		}
 		catch (PDOException $e) {
 			print "There was a problem with the DB operation: <br>" . $e->getMessage() . "<br>"; // Catches and shows an error msg if there is any.
