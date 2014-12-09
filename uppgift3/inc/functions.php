@@ -9,13 +9,16 @@
 /* ==|== Includes ===============================================================================
 	All files that should be included on the homepage, for example Header and Footer.
    ============================================================================================== */
+
+	// Config file is required
+	require('config.php');
 	
-	//	Header
+	// Header
 	function get_header() {
 		include('header.php');
 	}
 
-	//	Footer
+	// Footer
 	function get_footer() {
 		include('footer.php');
 	}
@@ -34,12 +37,10 @@
 			return $DBH;
 		}
 		catch (PDOException $e) {
-			print "There is a problem with the DB operation!: <br>" . $e->getMessage() . "<br>"; // Catches and shows an error msg if there is any.
+			print "There was a problem with the DB operation: <br>" . $e->getMessage() . "<br>"; // Catches and shows an error msg if there is any.
 			die();
 		}
 
 	}
-
-
 
 ?>
