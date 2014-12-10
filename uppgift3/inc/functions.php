@@ -10,15 +10,15 @@
 	All files that should be included on the homepage, for example Header and Footer.
    ============================================================================================== */
 
-	// Config file is required
+	// Config file is always required
 	require('config.php');
 	
-	// Header
+	// Header on top of all pages
 	function get_header() {
 		include('header.php');
 	}
 
-	// Footer
+	// Footer on the bottom of all pages
 	function get_footer() {
 		include('footer.php');
 	}
@@ -42,5 +42,11 @@
 		}
 
 	}
+
+
+/* ==|== Misc ===================================================================================
+	Misch stuff.
+   ============================================================================================== */
+
 
 ?>
