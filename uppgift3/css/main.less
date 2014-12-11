@@ -24,6 +24,10 @@
 
 	/* Colors */
 	@veryLightBlue: #ecf2f6;
+	@lightBlue: #97add3;
+	@blue: #22abe3;
+	@darkBlue: #67758d;
+	@veryDarkBlue: #333e4f;
 
 /* ==========================================================================================
 	General
@@ -49,7 +53,16 @@
 		font-weight: 300;
 		line-height: normal;
 		-webkit-font-smoothing: antialiased; /* Better cross-browser font weight "anti-aliasing" */
-		color: #5d5f6b;
+		color: @veryDarkBlue;
+	}
+
+	a {
+		color: @blue;
+
+		&:hover {
+			color: @darkBlue;
+			text-decoration: none;
+		}
 	}
 
 	#navbar,
@@ -75,11 +88,30 @@
 	}
 
 	.navbar-inverse {
-		background-color: #354052;
+		background-color: @veryDarkBlue;
 
 		.navbar-brand, 
 		.navbar-nav > li > a {
-			color: #acb7cc;
+			color: @veryLightBlue;
+
+			&:hover {
+				color: @lightBlue;
+			}
+		}
+	}
+
+	.navbar-toggle {
+		border: none;
+		margin-top: 9px;
+
+		.icon-bar+.icon-bar {
+			background-color: @lightBlue;
+		}
+	}
+
+	@media (max-width: 767px) {
+		.navbar-nav {
+			text-align: center;
 		}
 	}
 
