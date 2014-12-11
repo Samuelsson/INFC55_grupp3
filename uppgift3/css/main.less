@@ -1,11 +1,14 @@
 /*
 *	INFC55 Group 3
 *	2014
+*
+*	This is the uncompiled LESS file. This compiles into main.css (used on the site).
 */
 
 /* ==========================================================================================
 	Table of Contents
 =============================================================================================
+	:: Variables
 	:: General
 	:: Fonts
 	:: Header
@@ -15,6 +18,12 @@
 	:: Footer
 */
 
+/* ==========================================================================================
+	Variables
+============================================================================================= */
+
+	/* Colors */
+	@veryLightBlue: #ecf2f6;
 
 /* ==========================================================================================
 	General
@@ -35,11 +44,17 @@
 ============================================================================================= */
 
 	body {
-		font-family: 'Lato', 'Helvetica Neue', 'Arial', sans-serif;
+		font-family: 'Source Sans Pro', 'Helvetica Neue', 'Arial', sans-serif;
 		font-size: 18px;
 		font-weight: 300;
 		line-height: normal;
 		-webkit-font-smoothing: antialiased; /* Better cross-browser font weight "anti-aliasing" */
+		color: #5d5f6b;
+	}
+
+	#navbar,
+	.navbar-brand {
+		font-weight: 400;
 	}
 
 
@@ -60,14 +75,11 @@
 	}
 
 	.navbar-inverse {
-		background-color: #21364b;
+		background-color: #354052;
 
-		.navbar-brand {
-			color: #fff;
-		}
-
+		.navbar-brand, 
 		.navbar-nav > li > a {
-			color: #fff;
+			color: #acb7cc;
 		}
 	}
 
@@ -107,7 +119,7 @@
 			padding: 20px;
 			overflow-x: hidden;
 			overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-			background-color: #f5f5f5;
+			background-color: @veryLightBlue;
 			border-right: 1px solid #eee;
 		}
 	}

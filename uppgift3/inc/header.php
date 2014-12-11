@@ -24,7 +24,8 @@
 
 	<!-- Fonts
 	====================================================================== -->
-	<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:100,300,400'>
+	<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,100,300'>
+	<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400'>
 
 	<!-- Pre site Javascripts
 	====================================================================== -->
@@ -70,7 +71,7 @@
 					<span class="icon-bar"></span>
 				</button>
 
-				<a class="navbar-brand" href="#">Supersport</a>
+				<a class="navbar-brand" href="#">SUPERSPORT</a>
 			</div>
 
 			<div id="navbar" class="navbar-collapse collapse">
