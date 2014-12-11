@@ -18,6 +18,11 @@
 		include('header.php');
 	}
 
+	// Right sidebar on medium and large screens
+	function get_sidebarright() {
+		include('sidebar-right.php');
+	}
+
 	// Footer on the bottom of all pages
 	function get_footer() {
 		include('footer.php');

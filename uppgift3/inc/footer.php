@@ -2,7 +2,7 @@
 	====================================================================== -->
 
 	<footer>
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row">
 
 				<div class="col-lg-12">
@@ -11,7 +11,7 @@
 				</div>
 
 				<div class="col-lg-12 back-to-top">
-					<a href="#">&and; <br>Take me to the top</a>
+					<a href="#">Take me to the top</a>
 				</div>
 
 			</div>
