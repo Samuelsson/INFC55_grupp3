@@ -13,6 +13,10 @@
 
 				<h1>Testsida f&ouml;r Grupp 3</h1>
 
+				<?php 
+					$DBH = db_handle(); // Just for testing the db connection.
+				?>
+
 				<div>
 					<h2>Division 1</h2>
 					<div class="table-responsive">

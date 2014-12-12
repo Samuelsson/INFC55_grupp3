@@ -29,6 +29,7 @@
 	@darkBlue: #67758d;
 	@veryDarkBlue: #333e4f;
 
+
 /* ==========================================================================================
 	General
 ============================================================================================= */
@@ -44,7 +45,7 @@
 
 
 /* ==========================================================================================
-	Fonts
+	Fonts - Generic
 ============================================================================================= */
 
 	body {
@@ -59,15 +60,11 @@
 	a {
 		color: @blue;
 
-		&:hover {
+		&:hover,
+		&:focus {
 			color: @darkBlue;
 			text-decoration: none;
 		}
-	}
-
-	#navbar,
-	.navbar-brand {
-		font-weight: 400;
 	}
 
 
@@ -83,6 +80,11 @@
 	Navigation
 ============================================================================================= */
 
+	#navbar,
+	.navbar-brand {
+		font-weight: 400; /* heavier font weight in navbar */
+	}
+
 	.navbar-fixed-top {
 		border: 0;
 	}
@@ -92,26 +94,27 @@
 
 		.navbar-brand, 
 		.navbar-nav > li > a {
-			color: @veryLightBlue;
+			color: @veryLightBlue; /* link color in navbar */
 
 			&:hover {
-				color: @lightBlue;
+				color: @lightBlue; /* link color in navbar when hovered */
 			}
 		}
 	}
 
-	.navbar-toggle {
-		border: none;
+	.navbar-inverse .navbar-toggle {
+		border: none; /* removes the border around the hamburger icon */
 		margin-top: 9px;
 
-		.icon-bar+.icon-bar {
-			background-color: @lightBlue;
+		&:hover,
+		&:focus {
+			background-color: @darkBlue; /* bg color of the hamburger icon when hovered */
 		}
 	}
 
 	@media (max-width: 767px) {
 		.navbar-nav {
-			text-align: center;
+			text-align: center; /* centers the menu items when on small devices */
 		}
 	}
 
@@ -137,7 +140,7 @@
 ============================================================================================= */
 
 	.sidebar-right {
-		display: none; /* No sidebar in default view */
+		display: none; /* No sidebar in default (mobile) view */
 	}
 
 	@media (min-width: 768px) {

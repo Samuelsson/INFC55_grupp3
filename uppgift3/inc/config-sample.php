@@ -3,9 +3,9 @@
 /*	
  *	CONFIG FILE
  *
- *	####################################################
- *	RENAME THIS FILE TO config.php AND ENTER CREDENTIALS
- *	####################################################
+ *	##################################################
+ *	SAVE THIS FILE AS config.php AND ENTER CREDENTIALS
+ *	##################################################
  *
  *	This is where we store all our configurations.
  *	Connections to the database for example.
@@ -15,7 +15,7 @@
  */
 
 /* ==|== Database ===============================================================================
-	Credentials to our database.
+	Credentials to the database.
    ============================================================================================== */
 
 	// The server IP to database:
