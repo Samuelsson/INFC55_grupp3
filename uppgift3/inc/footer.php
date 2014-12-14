@@ -6,12 +6,9 @@
 			<div class="row">
 
 				<div class="col-lg-12">
-					<p>&copy; Group3 2014 <br>
+					<hr>
+					<p>&copy; Group3 2014 - 2015 <br>
 					Created by Group 3 as a school project in INFC55</p>
-				</div>
-
-				<div class="col-lg-12 back-to-top">
-					<a href="#">Take me to the top</a>
 				</div>
 
 			</div>
@@ -22,6 +19,7 @@
 	====================================================================== -->
 	<script src="js/jquery-2.1.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/postscripts.js"></script>
 
 </body>
 </html>

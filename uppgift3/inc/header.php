@@ -20,7 +20,7 @@
 	<!-- Stylesheets
 	====================================================================== -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/main.css"> <!-- The uncompiled LESS file is css/main.less -->
 
 	<!-- Fonts
 	====================================================================== -->
@@ -29,7 +29,7 @@
 
 	<!-- Pre site Javascripts
 	====================================================================== -->
-	<script src="js/own.js"></script>
+	<script src="js/prescripts.js"></script>
 	
 	<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
