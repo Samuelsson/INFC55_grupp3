@@ -42,7 +42,7 @@
 
 	body {
 		height: 100%;
-		padding-top: 50px; /* Pushes down site because of fixed navbar */
+		padding-top: 51px; /* Pushes down site because of fixed navbar */
 	}
 
 
@@ -113,12 +113,9 @@
 		font-weight: 400; /* heavier font weight in navbar */
 	}
 
-	.navbar-fixed-top {
-		border: 0;
-	}
-
 	.navbar-inverse {
 		background-color: @veryDarkBlue;
+		border-color: @darkBlue;
 
 		.navbar-brand, 
 		.navbar-nav > li > a {
@@ -168,7 +165,7 @@
 	@media (min-width: 768px) {
 		.sidebar-right { /* Shows the right sidebar when on medium screen or larger */
 			position: fixed;
-			top: 50px; /* Fixed navbar so pushes the sidebar down */
+			top: 51px; /* Fixed navbar so pushes the sidebar down */
 			bottom: 0;
 			right: 0;
 			z-index: 1000; /* Put the sidebar on top of other elements */
