@@ -1,7 +1,8 @@
 <?php
 	require_once('inc/functions.php'); // The file with all functions is required (can't be loaded more than once)
 
-	if (is_null($_GET['team'])) { // prevents the user to access the team_details.php directly without team id.
+	// Prevents the user to access the team_details.php directly without team id.
+	if (!isset($_GET['team'])) {
 		redirect_to("teams.php");
 	}
 

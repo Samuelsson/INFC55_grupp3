@@ -76,12 +76,12 @@
 
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">Hem</a></li>
+				<li><a href="index.php">Hem</a></li>
 				<li><a href="#">Cupper</a></li>
-				<li><a href="#">Lag</a></li>
+				<li><a href="teams.php">Lag</a></li>
 				<li><a href="#">Spelschema</a></li>
 				<li><a href="#">Statistik</a></li>
-				<li><a href="#">Logga in</a></li>
+				<li><a href="login.php">Logga in</a></li>
 				</ul>
 			</div>
 

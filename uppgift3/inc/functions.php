@@ -42,7 +42,7 @@
 			return $dbh;
 		}
 		catch (PDOException $e) {
-			print "There was a problem with the DB operation: <br>" . $e->getMessage() . "<br>"; // Catches and shows an error msg if there is any.
+			print "<br>There was a problem with the DB operation: <br>" . $e->getMessage() . "<br>"; // Catches and shows an error msg if there is any.
 			die();
 		}
 
@@ -53,11 +53,10 @@
 	Misch stuff.
    ============================================================================================== */
 
-	// Redirect function, e.g. when non logged in user tries to access admin.php
+   // Redirect function, e.g. when non logged in user tries to access admin.php
 	function redirect_to($url) {
 		header("Location: " . $url);
 		exit;
 	}
-
-
+	
 ?>
