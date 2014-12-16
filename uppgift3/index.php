@@ -14,7 +14,7 @@
 				<h1>Testsida f&ouml;r Grupp 3</h1>
 
 				<?php 
-					$DBH = db_handle(); // Just for testing the db connection.
+					$dbh = db_handle(); // Just for testing the db connection.
 				?>
 
 				<div>
