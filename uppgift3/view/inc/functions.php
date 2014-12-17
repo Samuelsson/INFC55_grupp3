@@ -15,17 +15,17 @@
 class ViewFunc
 {
 	function getHeader() {
-		include($_SERVER['DOCUMENT_ROOT'] . PATH . '/view/inc/header.php');
+		include(PATH . '/view/inc/header.php');
 	}
 
 	// Right sidebar on medium and large screens
 	function getSidebarRight() {
-		include($_SERVER['DOCUMENT_ROOT'] . PATH . '/view/inc/sidebar-right.php');
+		include(PATH . '/view/inc/sidebar-right.php');
 	}
 
 	// Footer on the bottom of all pages
 	function getFooter() {
-		include($_SERVER['DOCUMENT_ROOT'] . PATH . '/view/inc/footer.php');
+		include(PATH . '/view/inc/footer.php');
 	}
 }
 

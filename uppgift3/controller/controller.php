@@ -2,8 +2,8 @@
 
 $path = dirname(dirname(__FILE__));
 require ($path . '/model/config.php');
-require ($_SERVER['DOCUMENT_ROOT'] . PATH . '/dal/Dbh.php');
-require ($_SERVER['DOCUMENT_ROOT'] . PATH . '/view/inc/functions.php');
+require (PATH . '/dal/Dbh.php');
+require (PATH . '/view/inc/functions.php');
 
 
 class Controller
