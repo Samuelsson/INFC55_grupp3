@@ -1,4 +1,5 @@
 <?
+
 $path = dirname(dirname(__FILE__));
 require ($path . '/model/config.php');
 require ($_SERVER['DOCUMENT_ROOT'] . PATH . '/dal/Dbh.php');

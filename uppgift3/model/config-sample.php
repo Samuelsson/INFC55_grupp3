@@ -36,7 +36,8 @@
 	Misc stuff
    ============================================================================================== */
 
+
    //Path from root to index.php. I.E. '/INFC55_grupp3/uppgift3/'
-   define('');
+	define('PATH', '');
 
 ?>
