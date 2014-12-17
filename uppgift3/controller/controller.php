@@ -1,10 +1,8 @@
 <?php
-namespace "test";
-
 
 class Controller
 {
-	private $id;
+	private $id = "Hello world";
 
 	function setId($id)
 	{
