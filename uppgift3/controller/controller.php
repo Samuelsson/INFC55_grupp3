@@ -1,5 +1,6 @@
 <?
-require (basename(dirname($_SERVER['PHP_SELF'])) . 'model/config.php');
+$path = dirname(dirname(__FILE__));
+require ($path . '/model/config.php');
 require ($_SERVER['DOCUMENT_ROOT'] . PATH . '/dal/Dbh.php');
 require ($_SERVER['DOCUMENT_ROOT'] . PATH . '/view/inc/functions.php');
 
