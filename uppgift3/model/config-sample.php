@@ -36,4 +36,7 @@
 	Misc stuff
    ============================================================================================== */
 
+   // Custom path for root directory if uppgift3 is not the root of Apache.
+	define('PATH', '');
+
 ?>
