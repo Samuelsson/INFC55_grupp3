@@ -1,7 +1,7 @@
 <?
-require ($_SERVER['DOCUMENT_ROOT'] . '/model/config.php');
-require ($_SERVER['DOCUMENT_ROOT'] . '/dal/Dbh.php');
-require ($_SERVER['DOCUMENT_ROOT'] . '/view/inc/functions.php');
+require (basename(dirname($_SERVER['PHP_SELF'])) . 'model/config.php');
+require ($_SERVER['DOCUMENT_ROOT'] . PATH . '/dal/Dbh.php');
+require ($_SERVER['DOCUMENT_ROOT'] . PATH . '/view/inc/functions.php');
 
 
 class Controller
