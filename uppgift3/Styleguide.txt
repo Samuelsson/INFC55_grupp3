@@ -1,0 +1,5 @@
+Tables should be written with CamelCase
+Functions and object should be named with camelBack
+Classes should use CamelCase
+
+All comments should be written in english. 
