@@ -4,6 +4,7 @@
 
 sftp-config.json
 .htaccess
+*/model/config.php
 
 # Compiled source #
 ###################
