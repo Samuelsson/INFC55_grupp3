@@ -1,6 +1,9 @@
 <?php
-	require_once('inc/functions.php'); // The file with all functions is required (can't be loaded more than once)
-	get_header(); // Loads the header before the main content
+
+	// Config file is always required
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/controller/controller.php'); // The file with all functions is required (can't be loaded more than once)
+	$controller = new Controller;
+	$controller -> getHeader(); // Loads the header before the main content
 ?>
 
 	<!-- The Main Content
@@ -14,7 +17,7 @@
 				<h1>Testsida f&ouml;r Grupp 3</h1>
 
 				<?php 
-					$dbh = db_handle(); // Just for testing the db connection.
+					$dbh = $controller->getDbh(); // Just for testing the db connection.
 				?>
 
 				<div>
@@ -224,12 +227,12 @@
 			</div>
 
 		<?php
-			get_sidebarright(); // Gets the sidebar and loads it after the main content
+			$controller->getSidebarRight(); // Gets the sidebar and loads it after the main content
 		?>
 
 		</div>
 	</div>
 
 <?php
-	get_footer(); // Loads the footer after the main content
+	$controller->getFooter(); // Loads the footer after the main content
 ?>

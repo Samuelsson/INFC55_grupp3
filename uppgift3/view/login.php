@@ -1,5 +1,5 @@
 <?php
-	require_once('inc/functions.php'); // The file with all functions is required (can't be loaded more than once)
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/view/inc/inc/functions.php'); // The file with all functions is required (can't be loaded more than once)
 	get_header(); // Loads the header before the main content
 ?>
 
