@@ -53,10 +53,10 @@
 	Misch stuff.
    ============================================================================================== */
 
-   // Redirect function, e.g. when non logged in user tries to access admin.php
+   // Redirect function, e.g. used when non logged in user tries to access admin.php
 	function redirect_to($url) {
 		header("Location: " . $url);
 		exit;
 	}
-	
+
 ?>

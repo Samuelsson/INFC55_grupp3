@@ -5,6 +5,7 @@
  *
  *	##################################################
  *	SAVE THIS FILE AS config.php AND ENTER CREDENTIALS
+ *	DO NOT RENAME IT - IT WILL BE DELETED FROM GITHUB!
  *	##################################################
  *
  *	This is where we store all our configurations.
