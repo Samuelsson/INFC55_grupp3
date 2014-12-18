@@ -2,27 +2,25 @@
 
 $path = dirname(dirname(__FILE__));
 require ($path . '/model/config.php');
-require (PATH . '/dal/Dbh.php');
 require (PATH . '/view/inc/functions.php');
 require (PATH . '/dal/UserDal.php');
 require (PATH . '/dal/Dal.php');
 require (PATH . '/model/User.php');
 
 
-
-
 class Controller
 {
 	public $viewFunc;
-	public $dbh;
-	private $dbo;
+	public $dal;
+	private $dbh;
 	private $userDal;
 
 	public function __construct() {
 		$this->viewFunc = New ViewFunc;
-		$this->dbo = New Dbo;
-		$this->dbh = $this->dbo->dbHandle();
+		$this->dal = New Dal;
+		$this->dbh = $this->dal->dbHandle();
 		$this->userDal = New UserDal($this->dbh);
+
 	}
 
 	//---------------View functions--------------
@@ -51,7 +49,7 @@ class Controller
 	//----------------Database functions----------
 
 	public function getDbh() {
-		return $this->dbo->dbHandle();
+		return $this->dal->dbHandle();
 	}
 
 	/*==================User======================*/

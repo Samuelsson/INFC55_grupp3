@@ -16,7 +16,7 @@
 
 	<?php $u1 = $controller->getUser(2);
 
-		echo $u1->save($u1);
+		//echo $u1->save($u1);
 
 	 ?>
 
