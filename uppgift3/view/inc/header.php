@@ -78,7 +78,7 @@
 					<span class="icon-bar"></span>
 				</button>
 
-				<a class="navbar-brand" href="index.php">SUPERSPORT</a>
+				<a class="navbar-brand" href="<?php $con->getURL("index.php");?>">SUPERSPORT</a>
 			</div>
 
 			<div id="navbar" class="navbar-collapse collapse">
