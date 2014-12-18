@@ -1,6 +1,10 @@
 <?php
-	require_once('inc/functions.php'); // The file with all functions is required (can't be loaded more than once)
-	get_header(); // Loads the header before the main content
+
+	// Config file is always required
+	require_once('../controller/controller.php'); // The file with all functions is required (can't be loaded more than once)
+	$controller = new Controller; // Creates a controller object
+	$controller -> getHeader(); // Loads the header before the main content
+
 ?>
 
 	<!-- The Main Content
@@ -10,14 +14,13 @@
 		<div class="row">
 
 			<div class="col-lg-12">
-				<h1>404</h1>
-				<h2>Hmm, nu blev det knasigt.</h2>
-				<h2>Prova att g&aring; tillbaka eller prova igen.</h2>
+				<h1>Fyra Noll Fyra</h1>
+				<p>Hmm, nu blev det lite galet. Prova att g&aring; tillbaka och prova igen.</p>
 			</div>
 
 		</div>
 	</div>
 
 <?php
-	get_footer(); // Loads the footer after the main content
+	$controller->getFooter(); // Loads the footer after the main content
 ?>
