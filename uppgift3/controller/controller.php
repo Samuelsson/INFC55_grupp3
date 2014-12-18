@@ -4,16 +4,17 @@ $path = dirname(dirname(__FILE__));
 require ($path . '/model/config.php');
 require (PATH . '/dal/Dbh.php');
 require (PATH . '/view/inc/functions.php');
+require (PATH . '/dal/Dal.php');
 
 
 class Controller
 {
 	public $viewFunc;
-	public $dbh;
+	public $dal;
 
 	public function __construct() {
 		$this->viewFunc = New ViewFunc;
-		$this->dbh = New Dbh;
+		$this->dal = New Dal;
 	}
 
 	//---------------View functions--------------
@@ -42,7 +43,7 @@ class Controller
 	//----------------Database functions----------
 
 	public function getDbh() {
-		return $this->dbh->dbHandle();
+		return $this->dal->dbHandle();
 	}
 
 }
