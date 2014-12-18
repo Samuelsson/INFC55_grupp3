@@ -5,6 +5,11 @@
 	2014
 -->
 
+<?php 
+
+$con = new Controller;
+?>
+
 <html lang="en-us">
 <head>
 
@@ -19,8 +24,8 @@
 
 	<!-- Stylesheets
 	====================================================================== -->
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/main.css"> <!-- The uncompiled LESS file is css/main.less -->
+	<link rel="stylesheet" href="<?php $con->getURL("css/bootstrap.min.css");?>">
+	<link rel="stylesheet" href="<?php $con->getURL("css/main.css");?>" <!-- The uncompiled LESS file is css/main.less -->
 
 	<!-- Fonts
 	====================================================================== -->
@@ -29,7 +34,7 @@
 
 	<!-- Pre site Javascripts
 	====================================================================== -->
-	<script src="js/prescripts.js"></script>
+	<script src="<?php $con->getURL("js/prescripts.js");?>"></script>
 	
 	<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -38,15 +43,15 @@
 
 	<!-- Favicons
 	====================================================================== -->
-	<link rel="shortcut icon" href="img/favicons/favicon.ico">
+	<link rel="shortcut icon" href="<?php $con->getURL("img/favicons/favicon.ico");?>">
 
 	<!-- Touch Icons for Smartphones and Tablets -->
-	<link rel="icon" sizes="192x192" href="img/favicons/touch-icon-192x192.png">
-	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="img/favicons/apple-touch-icon-180x180-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="img/favicons/apple-touch-icon-152x152-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="img/favicons/apple-touch-icon-120x120-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="img/favicons/apple-touch-icon-76x76-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" href="img/favicons/apple-touch-icon-precomposed.png">
+	<link rel="icon" sizes="192x192" href="<?php $con->getURL("img/favicons/touch-icon-192x192.png");?>">
+	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="<?php $con->getURL("img/favicons/apple-touch-icon-180x180-precomposed.png");?>">
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="<?php $con->getURL("img/favicons/apple-touch-icon-152x152-precomposed.png");?>">
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="<?php $con->getURL("img/favicons/apple-touch-icon-120x120-precomposed.png");?>">
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="<?php $con->getURL("img/favicons/apple-touch-icon-76x76-precomposed.png");?>">
+	<link rel="apple-touch-icon-precomposed" href="<?php $con->getURL("img/favicons/apple-touch-icon-precomposed.png");?>">
 
 </head>
 <body>
@@ -76,12 +81,12 @@
 
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-				<li><a href="index.php">Hem</a></li>
-				<li><a href="cups.php">Cupper</a></li>
-				<li><a href="teams.php">Lag</a></li>
-				<li><a href="schedule.php">Spelschema</a></li>
-				<li><a href="stats.php">Statistik</a></li>
-				<li><a href="login.php">Logga in</a></li>
+				<li><a href="<?php $con->getURL("index.php");?>">Hem</a></li>
+				<li><a href="<?php $con->getURL("view/cups.php");?>">Cupper</a></li>
+				<li><a href="<?php $con->getURL("view/teams.php");?>">Lag</a></li>
+				<li><a href="<?php $con->getURL("view/schedule.php");?>">Spelschema</a></li>
+				<li><a href="<?php $con->getURL("view/stats.php");?>">Statistik</a></li>
+				<li><a href="<?php $con->getURL("view/login.php");?>">Logga in</a></li>
 				</ul>
 			</div>
 

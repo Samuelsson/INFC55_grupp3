@@ -27,8 +27,13 @@ class Controller
 		return $this->viewFunc->getSidebarRight();
 	}
 
-	function getFooter() {
+	public function getFooter() {
 		return $this->viewFunc->getFooter();
+	}
+
+	public function getURL($subDir) {
+		$path = URL_ROOT . $subDir;
+		echo $path;
 	}
 
 	//----------------Database functions----------
