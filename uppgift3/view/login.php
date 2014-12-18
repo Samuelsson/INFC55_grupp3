@@ -1,6 +1,7 @@
 <?php
-	require_once($_SERVER['DOCUMENT_ROOT'] . '/view/inc/inc/functions.php'); // The file with all functions is required (can't be loaded more than once)
-	get_header(); // Loads the header before the main content
+	require_once('../controller/controller.php'); // The file with all functions is required (can't be loaded more than once)
+	$controller = new Controller; // Creates a controller object // The file with all functions is required (can't be loaded more than once)
+	$controller->getHeader(); // Loads the header before the main content
 ?>
 
 	<!-- The Main Content
@@ -31,5 +32,5 @@
 	</div> <!-- /container -->
 
 <?php
-	get_footer(); // Loads the footer after the main content
+	$controller->getFooter(); // Loads the footer after the main content
 ?>

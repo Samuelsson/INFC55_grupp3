@@ -1,3 +1,10 @@
+<?php 
+
+	// Creates a controller object
+	$con = new Controller;
+
+?>
+
 	<!-- Footer
 	====================================================================== -->
 
@@ -17,9 +24,9 @@
 
 	<!-- Post site Javascripts
 	====================================================================== -->
-	<script src="js/jquery-2.1.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/postscripts.js"></script>
+	<script src="<?php $con->getURL("js/jquery-2.1.1.min.js");?>"></script>
+	<script src="<?php $con->getURL("js/bootstrap.min.js");?>"></script>
+	<script src="<?php $con->getURL("js/prescripts.js");?>"></script>
 
 </body>
 </html>

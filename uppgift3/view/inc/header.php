@@ -7,7 +7,9 @@
 
 <?php 
 
-$con = new Controller;
+	// Creates a controller object
+	$con = new Controller;
+
 ?>
 
 <html lang="en-us">

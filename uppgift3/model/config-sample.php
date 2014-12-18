@@ -21,6 +21,9 @@
 
 	// The server IP to database:
 	define('DB_HOST', 'localhost');
+
+	//	The port of the database (default is 3306):
+	define('DB_PORT', '3306');
 	
 	//	The name of the database:
 	define('DB_NAME', '');
@@ -35,9 +38,12 @@
 /* ==|== Misc ===================================================================================
 	Misc stuff
    ============================================================================================== */
+	
+	// Path from root to index.php. I.E. '/INFC55_grupp3/uppgift3/'
+	$path = '/path/to/uppgift3/';
 
-
-   //Path from root to index.php. I.E. '/INFC55_grupp3/uppgift3/'
-	define('PATH', '');
+	// No need to change anything here on PATH and URL_ROOT constants
+	define('PATH', $_SERVER['DOCUMENT_ROOT'] . $path);
+	define('URL_ROOT', $path);
 
 ?>
