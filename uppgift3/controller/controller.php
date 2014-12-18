@@ -31,9 +31,12 @@ class Controller
 		return $this->viewFunc->getFooter();
 	}
 
+	/**
+	*Echos the path given based on webserver root
+	*@param $subdir Path to document from site root.
+	*/
 	public function getURL($subDir) {
-		$path = URL_ROOT . $subDir;
-		echo $path;
+		echo $this->viewFunc->getUrl($subDir);
 	}
 
 	//----------------Database functions----------

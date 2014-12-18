@@ -27,6 +27,12 @@ class ViewFunc
 	function getFooter() {
 		include(PATH . '/view/inc/footer.php');
 	}
+
+	function getURL($subDir)
+	{
+		$path = URL_ROOT . $subDir;
+		return $path;
+	}
 }
 
 
