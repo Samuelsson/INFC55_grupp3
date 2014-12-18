@@ -10,14 +10,17 @@ class User {
 	* @param obj object to be saved
 	*/
 	function save($obj)	{
-	 $vars = get_object_vars($obj);
-	 $firstKey = key($vars);
-	 $firstValue = array_shift($vars);
-	 $sqlQuery = "UPDATE " . get_class($obj) . "s SET ";
-	 foreach ($vars as $key => $value) {
+	//This part generates an SQL-string based on the attributes.
+	 $vars = get_object_vars($obj);  	//Get all attributes
+	 $firstKey = key($vars); 			//Save the primary key
+	 $firstValue = array_shift($vars); 			//Save and remove the primary key value
+	 $sqlQuery = "UPDATE " . get_class($obj) . "s SET "; 			//Generate the first part, gets the table name.
+	 foreach ($vars as $key => $value) {			 //Add the attributes and attribute names to the string.
 	 	$sqlQuery = $sqlQuery . "$key='$value', ";
 	 }
-	 $sqlQuery = trim($sqlQuery, ", ") . " WHERE $firstKey = $firstValue";
+	 $sqlQuery = trim($sqlQuery, ", ") . " WHERE $firstKey = $firstValue"; 			//Identify the row with the primary key
+
+	 //
 	 return $sqlQuery;
 	}
 }

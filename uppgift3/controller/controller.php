@@ -5,6 +5,7 @@ require ($path . '/model/config.php');
 require (PATH . '/dal/Dbh.php');
 require (PATH . '/view/inc/functions.php');
 require (PATH . '/dal/UserDal.php');
+require (PATH . '/dal/Dal.php');
 require (PATH . '/model/User.php');
 
 
