@@ -3,13 +3,22 @@
 	require_once('../controller/controller.php'); // The file with all functions is required (can't be loaded more than once)
 	$controller = new Controller; // Creates a controller object // The file with all functions is required (can't be loaded more than once)
 	$controller->getHeader(); // Loads the header before the main content
+	
 
 ?>
+
 
 	<!-- The Main Content
 	====================================================================== -->
 
 	<div class="container">
+
+
+	<?php $u1 = $controller->getUser(2);
+
+		echo $u1->save($u1);
+
+	 ?>
 
 		<form class="form-login" role="form">
 			

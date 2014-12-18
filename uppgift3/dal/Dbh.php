@@ -3,7 +3,7 @@
 /* ==|== Database ===============================================================================
 	All database related.
    ============================================================================================== */
-class Dbh {
+class Dbo {
 
 	// The main function for the database connection and quering/executing. 
 	function dbHandle() {
