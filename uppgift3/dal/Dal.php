@@ -25,7 +25,7 @@ class Dal {
 	*The class names first letter is Capitalized
 	* @param obj object to be saved
 	*/
-	function save($obj)	{
+	function save($obj, $dbh)	{
 		//This part generates an SQL-string based on the attributes.
 		 $vars = get_object_vars($obj);  	//Get all attributes
 		 $firstKey = key($vars); 			//Save the primary key
@@ -35,7 +35,9 @@ class Dal {
 		 	$sqlQuery = $sqlQuery . "$key='$value', ";
 		 }
 		 $sqlQuery = trim($sqlQuery, ", ") . " WHERE $firstKey = $firstValue"; 			//Identify the row with the primary key
-		 return $sqlQuery;
+		 $query = $dbh->prepare($sqlQuery);
+		 $query->execute();
+
 	}
 }
 ?>

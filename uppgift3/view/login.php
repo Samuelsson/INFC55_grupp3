@@ -16,7 +16,9 @@
 
 	<?php $u1 = $controller->getUser(2);
 
-		//echo $u1->save($u1);
+
+		//$u1->password = "Hello World";
+		echo $u1->save($controller);
 
 	 ?>
 

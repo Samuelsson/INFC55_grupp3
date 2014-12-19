@@ -57,6 +57,10 @@ class Controller
 		return $this->userDal->getUser($userId);
 	}
 
+	public function saveUser($usr) {
+		$this->dal->save($usr, $this->dbh);
+	}
+
 }
 
 
