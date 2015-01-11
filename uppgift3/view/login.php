@@ -17,8 +17,13 @@
 	<?php $u1 = $controller->getUser(2);
 
 
-		//$u1->password = "Hello World";
-		echo $u1->save($controller);
+		//$u1->password = "Hello World2";
+		//$u1->save($controller);
+
+		if($controller->checkLogin("eric@epitet.net", "Hello World2"))
+			echo "true";
+		else
+			echo "false";
 
 	 ?>
 
@@ -29,12 +34,12 @@
 			<label for="inputEmail" class="sr-only">E-post</label>
 			<input type="email" id="inputEmail" class="form-control" placeholder="E-post" required autofocus>
 			
-			<label for="inputPassword" class="sr-only">L&ouml;senord</label>
-			<input type="password" id="inputPassword" class="form-control" placeholder="L&ouml;senord" required>
+			<label for="inputPassword" class="sr-only">Lösenord</label>
+			<input type="password" id="inputPassword" class="form-control" placeholder="Lösenord" required>
 			
 			<div class="checkbox">
 				<label>
-					<input type="checkbox" value="remember-me"> Kom ih&aring;g mig
+					<input type="checkbox" value="remember-me"> Kom ihåg mig
 				</label>
 			</div>
 
