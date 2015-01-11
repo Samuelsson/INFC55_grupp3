@@ -2,6 +2,10 @@
 
 	require_once('../controller/controller.php'); // The file with all functions is required (can't be loaded more than once)
 	$controller = new Controller; // Creates a controller object // The file with all functions is required (can't be loaded more than once)
+	$controller->checkLoggedInCookie();
+	//PHP CODE in before HTML
+	if(isset($_GET['logout']))
+		$controller->logout();
 	$controller->getHeader(); // Loads the header before the main content
 	
 
@@ -20,7 +24,9 @@
 		//$u1->password = "Hello World2";
 		//$u1->save($controller);
 
-		if($controller->checkLogin("eric@epitet.net", "Hello World2"))
+
+
+		if($LOGGED_IN)
 			echo "true";
 		else
 			echo "false";

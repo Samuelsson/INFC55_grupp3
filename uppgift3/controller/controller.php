@@ -7,7 +7,8 @@ require (PATH . '/dal/UserDal.php');
 require (PATH . '/dal/Dal.php');
 require (PATH . '/model/User.php');
 require (PATH . '/model/Helper.php');
-
+global $LOGGED_IN;
+$LOGGED_IN = false;
 
 class Controller
 {
@@ -70,6 +71,19 @@ class Controller
 	 */
 	public function checkLogin($email, $pwd) {
 		return $this->helper->checkLogin($email, $pwd);
+	}
+
+	//==================HELPER========================
+	public function checkLoggedInCookie() {
+		$this->helper->checkLoggedInCookie();
+	}
+
+	public function login() {
+		$this->helper->login($email, $pwd);
+	}
+
+	public function logout() {
+		$this->helper->logout();
 	}
 
 }
