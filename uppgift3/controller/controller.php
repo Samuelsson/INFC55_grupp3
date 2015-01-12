@@ -6,21 +6,26 @@ require (PATH . '/view/inc/functions.php');
 require (PATH . '/dal/UserDal.php');
 require (PATH . '/dal/Dal.php');
 require (PATH . '/model/User.php');
+require (PATH . '/model/Helper.php');
+global $LOGGED_IN;
+global $CURRENT_USER; //Den inloggade användarens objekt.
+$LOGGED_IN = false;
 
 
 class Controller
 {
 	public $viewFunc;
 	public $dal;
-	private $dbh;
+	public $dbh;
 	private $userDal;
+	private $helper;
 
 	public function __construct() {
 		$this->viewFunc = New ViewFunc;
 		$this->dal = New Dal;
 		$this->dbh = $this->dal->dbHandle();
 		$this->userDal = New UserDal($this->dbh);
-
+		$this->helper = New Helper($this);
 	}
 
 	//---------------View functions--------------
@@ -52,13 +57,39 @@ class Controller
 		return $this->dal->dbHandle();
 	}
 
+	public function save($obj) {
+		$this->dal->save($obj, $this->dbh);
+	}
+
 	/*==================User======================*/
 	public function getUser($userId) {
 		return $this->userDal->getUser($userId);
 	}
 
-	public function saveUser($usr) {
-		$this->dal->save($usr, $this->dbh);
+	/**
+	 * Returns a boolean indicating if the username and password combination was found and correct
+	 * @param $email User email
+	 * @param $pwd User password
+	 */
+	public function checkLogin($email, $pwd) {
+		return $this->helper->checkLogin($email, $pwd);
+	}
+
+	//==================HELPER========================
+	public function checkLoggedInCookie() {
+		$this->helper->checkLoggedInCookie();
+	}
+
+	public function login($email, $pwd) {
+		$this->helper->login($email, $pwd);
+	}
+
+	public function logout() {
+		$this->helper->logout();
+	}
+
+	public function setAccessLevel($lvl) {
+		$this->helper->setAccessLevel($lvl);
 	}
 
 }

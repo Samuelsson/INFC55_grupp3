@@ -2,8 +2,13 @@
 
 class User {
 
+
+	/**
+	 *Saves the user 
+	 * @param $controller The controller
+	 */
 	function save($controller) {
-		$controller->saveUser($this);
+		$controller->save($this);
 	}
 
 }
