@@ -3,6 +3,7 @@
 	// Config file is always required
 	require_once('controller/controller.php'); // The file with all functions is required (can't be loaded more than once)
 	$controller = new Controller; // Creates a controller object
+	$controller->checkLoggedInCookie();
 	$controller -> getHeader(); // Loads the header before the main content
 
 ?>
@@ -25,7 +26,6 @@
 					<h2>Division 1</h2>
 					<div class="table-responsive">
 						<table class="table table-striped">
-							
 							<thead>
 								<tr>
 									<th>Placering</th>

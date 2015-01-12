@@ -81,12 +81,25 @@ $con = new Controller;
 
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-				<li><a href="<?php $con->getURL("index.php");?>">Hem</a></li>
-				<li><a href="<?php $con->getURL("view/cups.php");?>">Cupper</a></li>
-				<li><a href="<?php $con->getURL("view/teams.php");?>">Lag</a></li>
-				<li><a href="<?php $con->getURL("view/schedule.php");?>">Spelschema</a></li>
-				<li><a href="<?php $con->getURL("view/stats.php");?>">Statistik</a></li>
-				<li><a href="<?php $con->getURL("view/login.php");?>">Logga in</a></li>
+				<li><a href="<?php echo $con->getURL("index.php");?>">Hem</a></li>
+				<li><a href="<?php echo $con->getURL("view/cups.php");?>">Cupper</a></li>
+				<li><a href="<?php echo $con->getURL("view/teams.php");?>">Lag</a></li>
+				<li><a href="<?php echo $con->getURL("view/schedule.php");?>">Spelschema</a></li>
+				<li><a href="<?php echo $con->getURL("view/stats.php");?>">Statistik</a></li>
+				<?php 
+				global $LOGGED_IN;
+				if(!$LOGGED_IN) {
+					echo "<li><a href='";
+					echo $con->getURL("view/login.php"); 
+					echo "'>Logga in</a></li>";
+				}
+				else {
+					echo "<li><a href='";
+					echo $con->getURL("view/login.php?logout"); 
+					echo "'>Logga ut</a></li>";
+				}
+
+				?>
 				</ul>
 			</div>
 

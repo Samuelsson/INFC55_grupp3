@@ -8,7 +8,9 @@ require (PATH . '/dal/Dal.php');
 require (PATH . '/model/User.php');
 require (PATH . '/model/Helper.php');
 global $LOGGED_IN;
+global $CURRENT_USER; //Den inloggade användarens objekt.
 $LOGGED_IN = false;
+
 
 class Controller
 {
@@ -78,7 +80,7 @@ class Controller
 		$this->helper->checkLoggedInCookie();
 	}
 
-	public function login() {
+	public function login($email, $pwd) {
 		$this->helper->login($email, $pwd);
 	}
 

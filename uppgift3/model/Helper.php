@@ -24,20 +24,24 @@ class Helper {
 	function checkLogin($email, $pwd) {
 		$result = $this->helperDal->getLogin($email, $pwd);
 		if($result['password'] == $pwd) {  	//SKALL MD5AS och SALTAS!!!
-		
+			
 			setcookie("login_name", $email, time() + (86400 * 7), "/"); //Sätter cookies eller uppdaterar dem om de finns. 
 			setcookie("login_pwd", $pwd, time() + (86400 * 7), "/");
 			global $LOGGED_IN; //Hämtar en global variabel
+			global $CURRENT_USER;
 			$LOGGED_IN = true; //Sätter den globala variabeln
+			$CURRENT_USER = $this->controller->getUser($result['userId']);
 			return true;
 		}
 		else
 			return false;
 	}
 
-	
-	function login($email, $pwd) {
 
+	//Funciton for logging in. 
+	function login($email, $pwd) {
+		if($this->checkLogin($email, $pwd))
+			header('location: logged_in.php'); //If succesfull, send user to an other page.
 	}
 
 	//Removes the login cookies
