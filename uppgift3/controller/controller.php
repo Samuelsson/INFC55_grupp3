@@ -66,13 +66,9 @@ class Controller
 		return $this->userDal->getUser($userId);
 	}
 
-	/**
-	 * Returns a boolean indicating if the username and password combination was found and correct
-	 * @param $email User email
-	 * @param $pwd User password
-	 */
-	public function checkLogin($email, $pwd) {
-		return $this->helper->checkLogin($email, $pwd);
+	//Use foreach($controller->getAllUsers() as $user)
+	public function getAllUsers() {
+		return $this->userDal->getAllUsers();
 	}
 
 	//==================HELPER========================
@@ -90,6 +86,15 @@ class Controller
 
 	public function setAccessLevel($lvl) {
 		$this->helper->setAccessLevel($lvl);
+	}
+
+	/**
+	 * Returns a boolean indicating if the username and password combination was found and correct
+	 * @param $email User email
+	 * @param $pwd User password
+	 */
+	public function checkLogin($email, $pwd) {
+		return $this->helper->checkLogin($email, $pwd);
 	}
 
 }

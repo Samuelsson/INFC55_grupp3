@@ -18,6 +18,8 @@
 			$query = $this->dbh->query($sqlQuery);
 			return $query->fetch();
 		}
+
+		
 	}
 
 ?>

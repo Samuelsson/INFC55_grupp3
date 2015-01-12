@@ -51,7 +51,7 @@ class Helper {
 		setcookie("login_pwd", "", time() -3600, "/");
 	}
 
-	//
+	//Sets the minimum access level of a page.
 	function setAccessLevel($lvl) {
 		global $CURRENT_USER;
 		if($CURRENT_USER->accessLevel >= $lvl)

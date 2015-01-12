@@ -14,6 +14,12 @@
 			$query->setFetchMode(\PDO::FETCH_CLASS, 'User');
 			return $query->fetch();
 		}
+
+		
+		function getAllUsers() {
+			$sqlQuery = "SELECT * FROM Users";
+			return $this->dbh->query($sqlQuery);
+		}
 	}
 
 ?>
