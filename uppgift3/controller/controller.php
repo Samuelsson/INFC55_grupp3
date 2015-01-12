@@ -88,6 +88,10 @@ class Controller
 		$this->helper->logout();
 	}
 
+	public function setAccessLevel($lvl) {
+		$this->helper->setAccessLevel($lvl);
+	}
+
 }
 
 

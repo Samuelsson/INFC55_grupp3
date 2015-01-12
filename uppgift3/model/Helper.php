@@ -14,6 +14,7 @@ class Helper {
 		$this->helperDal = new HelperDal($cont->dbh); //DAL för helpern. Skickar in kopplingen till databasen.
 	}
 
+	//This function runs on every page and checks if the user is logged in (by cookies).
 	function checkLoggedInCookie() {
 		if(isset($_COOKIE['login_name']) && isset($_COOKIE['login_pwd'])) {
 			$this->checkLogin($_COOKIE['login_name'], $_COOKIE['login_pwd']);
@@ -38,7 +39,7 @@ class Helper {
 	}
 
 
-	//Funciton for logging in. 
+	//Function for logging in. 
 	function login($email, $pwd) {
 		if($this->checkLogin($email, $pwd))
 			header('location: logged_in.php'); //If succesfull, send user to an other page.
@@ -48,6 +49,15 @@ class Helper {
 	function logout() {
 		setcookie("login_name", "", time() -3600, "/");
 		setcookie("login_pwd", "", time() -3600, "/");
+	}
+
+	//
+	function setAccessLevel($lvl) {
+		global $CURRENT_USER;
+		if($CURRENT_USER->accessLevel >= $lvl)
+			;
+		else
+			die("Du har inte till&aring;telse att anv&auml;nda denna sida.");
 	}
 
 }
