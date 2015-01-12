@@ -7,11 +7,13 @@ require (PATH . '/dal/UserDal.php');
 require (PATH . '/dal/CupDal.php');
 require (PATH . '/dal/DivisionDal.php');
 require (PATH . '/dal/TeamDal.php');
+require (PATH . '/dal/MatchDal.php');
 require (PATH . '/dal/Dal.php');
 require (PATH . '/model/User.php');
 require (PATH . '/model/Division.php');
 require (PATH . '/model/Team.php');
 require (PATH . '/model/Cup.php');
+require (PATH . '/model/Match.php');
 require (PATH . '/model/Helper.php');
 global $LOGGED_IN;
 global $CURRENT_USER; //Den inloggade användarens objekt.
@@ -27,6 +29,7 @@ class Controller
 	private $cupDal;
 	private $divisionDal;
 	private $teamDal;
+	private $matchDal;
 	private $helper;
 
 	public function __construct() {
@@ -37,7 +40,9 @@ class Controller
 		$this->cupDal = New CupDal($this->dbh);
 		$this->divisionDal = New DivisionDal($this->dbh);
 		$this->teamDal = New TeamDal($this->dbh);
+		$this->matchDal = New MatchDal($this->dbh);
 		$this->helper = New Helper($this);
+
 	}
 
 	//---------------View functions--------------
@@ -90,6 +95,12 @@ class Controller
 
 		foreach($cup->divisionList as $division) {
 			$division->teamList = $this->teamDal->getTeamsForDivision($division->divisionId);
+			$division->matchList = $this->matchDal->getMatchesForDivision($division->divisionId);
+
+			foreach($division->matchList as $match){		
+				$match->homeTeam = $this->teamDal->getTeam($match->homeTeamId);
+				$match->awayTeam = $this->teamDal->getTeam($match->awayTeamId);
+			}
 		}
 
 		return $cup;

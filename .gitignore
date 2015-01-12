@@ -5,6 +5,9 @@
 sftp-config.json
 .htaccess
 */model/config.php
+*/PlayerDal.php
+*/danielTest.php
+*/team_details.php
 
 # Compiled source #
 ###################
