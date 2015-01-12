@@ -26,7 +26,7 @@
 	====================================================================== -->
 	<script src="<?php $con->getURL("js/jquery-2.1.1.min.js");?>"></script>
 	<script src="<?php $con->getURL("js/bootstrap.min.js");?>"></script>
-	<script src="<?php $con->getURL("js/prescripts.js");?>"></script>
+	<script src="<?php $con->getURL("js/postscripts.js");?>"></script>
 
 </body>
 </html>
