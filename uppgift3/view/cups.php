@@ -14,6 +14,7 @@
 	<div class="container-fluid">
 		<div class="row">
 
+
 		<div class="col-md-12">
 
 			<h1>Cuper</h1>
@@ -22,7 +23,7 @@
 
 			<?php
 				$cupList = $controller->getAllCups();
-			
+
 				foreach($cupList as $cup) {
 					echo '<a href="';
 					echo $controller->getURL("view/cup_details.php");
