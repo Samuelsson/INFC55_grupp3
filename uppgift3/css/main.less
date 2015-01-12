@@ -201,7 +201,7 @@
 			font-size: 16px;
 
 			&:focus {
-				z-index: 2; /* The shine around the active form is on top */
+				z-index: 999; /* The shine around the active form is on top */
 			}
 		}
 
@@ -223,10 +223,11 @@
 	Page - Teams
 ============================================================================================= */
 	
-	.team-image {
-		text-align: center;
+	.team-image,
+	.player-img {
 		padding: 10px;
 		display: inline-block;
+		text-align: center;
 	}
 
 

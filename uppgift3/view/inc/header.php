@@ -6,8 +6,7 @@
 -->
 
 <?php 
-
-$con = new Controller;
+	$con = new Controller;
 ?>
 
 <html lang="en-us">

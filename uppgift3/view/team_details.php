@@ -1,37 +1,9 @@
 <?php
-	require_once('inc/functions.php'); // The file with all functions is required (can't be loaded more than once)
 
-	// Prevents the user to access the team_details.php directly without team id.
-	if (!isset($_GET['id']) || empty($_GET['id'])) {
-		redirect_to("teams.php"); // if no $_GET the user gets redirected to teams.php
-	}
+	require_once('../controller/controller.php'); // The file with all functions is required (can't be loaded more than once)
+	$controller = new Controller; // Creates a controller object
+	$controller -> getHeader(); // Loads the header before the main content
 
-	get_header(); // Loads the header before the main content
-?>
-
-<?php
-	// The database connection established
-	$dbh = db_handle();
-
-	// Our query for this page saved to a variable
-	$sql = '
-		SELECT * 
-		FROM teams 
-		WHERE id = :id 
-	';
-
-	$sth = $dbh->prepare($sql);
-	$sth->execute( array('id' => $_GET['id']));
-
-	$result = $sth->fetchAll(PDO::FETCH_ASSOC);
-
-	// Save all the important information in variables for use later in the HTML code
-	foreach($result as $row) {
-		$teamName = $row['team_name'];
-		$desc = $row['description'];
-		$manager = $row['manager'];
-		$founded = $row['founded'];
-	}
 ?>
 
 	<!-- The Main Content
@@ -40,31 +12,91 @@
 	<div class="container-fluid">
 		<div class="row">
 
-			<div class="col-sm-8 col-md-9 main-content">
+			<div class="col-md-12">
 
-				<h1><?php echo $teamName; ?></h1>
+			<h1>Lagnamnet</h1>
 
-				<p><?php echo "Grundat: {$founded} och nuvarande manager &auml;r {$manager}."; ?></p>
+			<p class="team-description">H&auml;r har vi description om laget. Bacon ipsum dolor amet beef kevin swine hamburger brisket spare ribs pig corned beef flank. Venison picanha turducken boudin pastrami. Spare ribs andouille pig kevin capicola short loin pork ground round salami chicken. Cow shank pancetta pork chop drumstick ham flank.</p>
 
-				<p><?php echo $desc; ?></p>
+			<h2>Spelare</h2>
 
-				<h2>Detta &auml;r en print av v&aring;r array f&ouml;r testning och verifiering</h2>
+				<div class="player-img">
+					<img src="../img/player_noimg.png" alt="Bild p&aring; spelare"><br>
+					<span>Olle Braconier</span><br>
+					<span>Nummer 12</span>
+				</div>
 
-				<pre>
-					<?php
-					print_r($result);
-					?>
-				</pre>
+				<div class="player-img">
+					<img src="../img/player_noimg.png" alt="Bild p&aring; spelare"><br>
+					<span>Olle Braconier</span><br>
+					<span>Nummer 12</span>
+				</div>
 
+				<div class="player-img">
+					<img src="../img/player_noimg.png" alt="Bild p&aring; spelare"><br>
+					<span>Olle Braconier</span><br>
+					<span>Nummer 12</span>
+				</div>
+
+				<div class="player-img">
+					<img src="../img/player_noimg.png" alt="Bild p&aring; spelare"><br>
+					<span>Olle Braconier</span><br>
+					<span>Nummer 12</span>
+				</div>
+
+				<div class="player-img">
+					<img src="../img/player_noimg.png" alt="Bild p&aring; spelare"><br>
+					<span>Olle Braconier</span><br>
+					<span>Nummer 12</span>
+				</div>
+
+				<div class="player-img">
+					<img src="../img/player_noimg.png" alt="Bild p&aring; spelare"><br>
+					<span>Olle Braconier</span><br>
+					<span>Nummer 12</span>
+				</div>
+
+				<div class="player-img">
+					<img src="../img/player_noimg.png" alt="Bild p&aring; spelare"><br>
+					<span>Olle Braconier</span><br>
+					<span>Nummer 12</span>
+				</div>
+
+				<div class="player-img">
+					<img src="../img/player_noimg.png" alt="Bild p&aring; spelare"><br>
+					<span>Olle Braconier</span><br>
+					<span>Nummer 12</span>
+				</div>
+
+				<div class="player-img">
+					<img src="../img/player_noimg.png" alt="Bild p&aring; spelare"><br>
+					<span>Olle Braconier</span><br>
+					<span>Nummer 12</span>
+				</div>
+
+				<div class="player-img">
+					<img src="../img/player_noimg.png" alt="Bild p&aring; spelare"><br>
+					<span>Olle Braconier</span><br>
+					<span>Nummer 12</span>
+				</div>
+
+				<div class="player-img">
+					<img src="../img/player_noimg.png" alt="Bild p&aring; spelare"><br>
+					<span>Olle Braconier</span><br>
+					<span>Nummer 12</span>
+				</div>
+
+				<div class="player-img">
+					<img src="../img/player_noimg.png" alt="Bild p&aring; spelare"><br>
+					<span>Olle Braconier</span><br>
+					<span>Nummer 12</span>
+				</div>
+	
 			</div>
-
-		<?php
-			get_sidebarright(); // Gets the sidebar and loads it after the main content
-		?>
 
 		</div>
 	</div>
 
 <?php
-	get_footer(); // Loads the footer after the main content
+	$controller->getFooter(); // Loads the footer after the main content
 ?>
