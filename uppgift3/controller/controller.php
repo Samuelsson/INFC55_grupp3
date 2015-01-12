@@ -4,8 +4,14 @@ $path = dirname(dirname(__FILE__));
 require ($path . '/model/config.php');
 require (PATH . '/view/inc/functions.php');
 require (PATH . '/dal/UserDal.php');
+require (PATH . '/dal/CupDal.php');
+require (PATH . '/dal/DivisionDal.php');
+require (PATH . '/dal/TeamDal.php');
 require (PATH . '/dal/Dal.php');
 require (PATH . '/model/User.php');
+require (PATH . '/model/Division.php');
+require (PATH . '/model/Team.php');
+require (PATH . '/model/Cup.php');
 require (PATH . '/model/Helper.php');
 global $LOGGED_IN;
 global $CURRENT_USER; //Den inloggade användarens objekt.
@@ -18,6 +24,9 @@ class Controller
 	public $dal;
 	public $dbh;
 	private $userDal;
+	private $cupDal;
+	private $divisionDal;
+	private $teamDal;
 	private $helper;
 
 	public function __construct() {
@@ -25,6 +34,9 @@ class Controller
 		$this->dal = New Dal;
 		$this->dbh = $this->dal->dbHandle();
 		$this->userDal = New UserDal($this->dbh);
+		$this->cupDal = New CupDal($this->dbh);
+		$this->divisionDal = New DivisionDal($this->dbh);
+		$this->teamDal = New TeamDal($this->dbh);
 		$this->helper = New Helper($this);
 	}
 
@@ -64,6 +76,23 @@ class Controller
 	/*==================User======================*/
 	public function getUser($userId) {
 		return $this->userDal->getUser($userId);
+	}
+
+	/*===================Cup======================*/
+	public function getAllCups() {
+		return $this->cupDal->getAllCups();
+	}
+
+	public function getCupEager($cupId) {
+		$cup = $this->cupDal->getCup($cupId);
+
+		$cup->divisionList = $this->divisionDal->getDivisionsForCup($cup->cupId);
+
+		foreach($cup->divisionList as $division) {
+			$division->teamList = $this->teamDal->getTeamsForDivision($division->divisionId);
+		}
+
+		return $cup;
 	}
 
 	/**
