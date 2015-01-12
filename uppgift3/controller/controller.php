@@ -7,8 +7,10 @@ require (PATH . '/dal/UserDal.php');
 require (PATH . '/dal/Dal.php');
 require (PATH . '/model/User.php');
 require (PATH . '/model/Helper.php');
-global $LOGGED_IN;
-global $CURRENT_USER; //Den inloggade användarens objekt.
+require (PATH . '/model/Team.php');
+require (PATH . '/dal/TeamDal.php');
+global $LOGGED_IN; //Global indicating user login state.
+global $CURRENT_USER; //Global pointing at the current user object.
 $LOGGED_IN = false;
 
 
@@ -19,6 +21,7 @@ class Controller
 	public $dbh;
 	private $userDal;
 	private $helper;
+	private $teamDal;
 
 	public function __construct() {
 		$this->viewFunc = New ViewFunc;
@@ -26,6 +29,7 @@ class Controller
 		$this->dbh = $this->dal->dbHandle();
 		$this->userDal = New UserDal($this->dbh);
 		$this->helper = New Helper($this);
+		$this->teamDal = New TeamDal($this->dbh);
 	}
 
 	//---------------View functions--------------
@@ -48,7 +52,7 @@ class Controller
 	*@param $subdir Path to document from site root.
 	*/
 	public function getURL($subDir) {
-		echo $this->viewFunc->getUrl($subDir);
+		return $this->viewFunc->getUrl($subDir);
 	}
 
 	//----------------Database functions----------
@@ -99,6 +103,11 @@ class Controller
 	 */
 	public function checkLogin($email, $pwd) {
 		return $this->helper->checkLogin($email, $pwd);
+	}
+
+	//===================TEAMS=========================
+	public function getAllTeams() {
+		return $this->teamDal->getAllTeams();
 	}
 
 }

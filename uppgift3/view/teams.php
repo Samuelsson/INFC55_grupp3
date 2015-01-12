@@ -18,60 +18,19 @@
 
 				<!-- We loop all teams here, atm this is just a filler -->
 
-				<div class="team-image">
-					<a href="team_details.php?id=0"><img src="../img/team_noimg.png" alt="Bild p&aring; laget"></a>
-					<h4>Superlaget</h4>
-				</div>
-	
-				<div class="team-image">
-					<a href="team_details.php?id=0"><img src="../img/team_noimg.png" alt="Bild p&aring; laget"></a>
-					<h4>Superlaget</h4>
-				</div>
-	
-				<div class="team-image">
-					<a href="team_details.php?id=0"><img src="../img/team_noimg.png" alt="Bild p&aring; laget"></a>
-					<h4>Superlaget</h4>
-				</div>
-	
-				<div class="team-image">
-					<a href="team_details.php?id=0"><img src="../img/team_noimg.png" alt="Bild p&aring; laget"></a>
-					<h4>Superlaget</h4>
-				</div>
-	
-				<div class="team-image">
-					<a href="team_details.php?id=0"><img src="../img/team_noimg.png" alt="Bild p&aring; laget"></a>
-					<h4>Superlaget</h4>
-				</div>
-	
-				<div class="team-image">
-					<a href="team_details.php?id=0"><img src="../img/team_noimg.png" alt="Bild p&aring; laget"></a>
-					<h4>Superlaget</h4>
-				</div>
-	
-				<div class="team-image">
-					<a href="team_details.php?id=0"><img src="../img/team_noimg.png" alt="Bild p&aring; laget"></a>
-					<h4>Superlaget</h4>
-				</div>
-	
-				<div class="team-image">
-					<a href="team_details.php?id=0"><img src="../img/team_noimg.png" alt="Bild p&aring; laget"></a>
-					<h4>Superlaget</h4>
-				</div>
-	
-				<div class="team-image">
-					<a href="team_details.php?id=0"><img src="../img/team_noimg.png" alt="Bild p&aring; laget"></a>
-					<h4>Superlaget</h4>
-				</div>
-	
-				<div class="team-image">
-					<a href="team_details.php?id=0"><img src="../img/team_noimg.png" alt="Bild p&aring; laget"></a>
-					<h4>Superlaget</h4>
-				</div>
-	
-				<div class="team-image">
-					<a href="team_details.php?id=0"><img src="../img/team_noimg.png" alt="Bild p&aring; laget"></a>
-					<h4>Superlaget</h4>
-				</div>
+				<?php 
+				$url = $controller->getURL("team_details.php?id=");
+
+					foreach($controller->getAllTeams() as $row) { ?>
+						<div class="team-image">
+						<a href="<?php echo $url . $row['teamId'] ?>"><img src="../img/team_noimg.png" alt="Bild p&aring; laget"></a>
+						<h4><a href="<?php echo $url . $row['teamId'] ?>"><?php echo $row[name]; ?></a></h4>
+						</div>
+
+						<?php
+					}
+
+				?>
 	
 			</div>
 
