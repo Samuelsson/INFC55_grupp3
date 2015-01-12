@@ -88,7 +88,7 @@ $con = new Controller;
 				<li><a href="<?php echo $con->getURL("view/stats.php");?>">Statistik</a></li>
 				<?php 
 				global $LOGGED_IN;
-				if(!$LOGGED_IN) {
+				if(!$LOGGED_IN) { //Checks if Login or logged out should be displayed.
 					echo "<li><a href='";
 					echo $con->getURL("view/login.php"); 
 					echo "'>Logga in</a></li>";

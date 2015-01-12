@@ -61,6 +61,10 @@ class Controller
 		$this->dal->save($obj, $this->dbh);
 	}
 
+	public function create($tableName, $arr) {
+		$this->dal->create($tableName, $arr);
+	}
+
 	/*==================User======================*/
 	public function getUser($userId) {
 		return $this->userDal->getUser($userId);

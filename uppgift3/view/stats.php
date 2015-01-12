@@ -13,7 +13,10 @@
 
 	<div class="container-fluid">
 		<div class="row">
-
+		<?php
+			$array = array("email" => "happ@y.s", "password" => "pass", "accessLevel" => "1");
+			$controller->create("Users", $array);
+		?>
 		</div>
 	</div>
 

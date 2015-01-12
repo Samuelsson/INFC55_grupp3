@@ -45,7 +45,25 @@ class Dal {
 		 $query->execute();
 	}
 
+	/**
+	 *Inserts a new object in to the DB. 
+	 * @param $tableName The name of the table in the DB.
+	 * @param $arr Array of the row to be inserted. The key equals the attribute name.
+	 */
+	function create($tableName, $arr) {
+		foreach($arr as $key=>$value) { //generates the keys and value strings.
+			$keys .= "" . $key . ",";
+			$values .= "'" . $value . "',";
+		}
+		
+		$keys = rtrim("$keys,", ","); //Remove the trailing comma
+		$values = rtrim("$values,", ",");
+		$sqlQuery = "INSERT INTO $tableName ($keys) VALUES ($values)"; //Build the query.
 
-	
+		$query = $this->dbh->prepare($sqlQuery);
+		$query->execute();
+	}
+
+
 }
 ?>
