@@ -64,6 +64,5 @@ class Dal {
 		$query->execute();
 	}
 
-
 }
 ?>
