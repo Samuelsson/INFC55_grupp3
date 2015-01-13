@@ -15,7 +15,6 @@ require (PATH . '/model/Team.php');
 require (PATH . '/model/Cup.php');
 require (PATH . '/model/Match.php');
 require (PATH . '/model/Helper.php');
-require (PATH . '/model/Team.php');
 require (PATH . '/dal/TeamDal.php');
 global $LOGGED_IN; //Global indicating user login state.
 global $CURRENT_USER; //Global pointing at the current user object.
