@@ -102,7 +102,9 @@ class Controller
 		$cup->divisionList = $this->divisionDal->getDivisionsForCup($cup->cupId);
 
 		foreach($cup->divisionList as $division) {
+			
 			$division->teamList = $this->teamDal->getTeamsForDivision($division->divisionId);
+			
 			$division->matchList = $this->matchDal->getMatchesForDivision($division->divisionId);
 
 			foreach($division->matchList as $match) {
