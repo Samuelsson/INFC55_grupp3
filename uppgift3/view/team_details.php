@@ -22,23 +22,25 @@
 
 			<div class="col-md-12">
 
-			<h1><?php echo $team->name; ?></h1>
+				<h1><?php echo $team->name; ?></h1>
 
-			<p class="team-description"><?php echo $team->description; ?></p>
+				<p class="team-description"><?php echo $team->description; ?></p>
 
-			<h2>Spelare</h2>
+				<h2>Spelare</h2>
 
-			<?php 
-				foreach ($players as $player) { ?>
-				
-					<div class="player-img">
-						<img src="../img/player_noimg.png" alt="Bild p&aring; spelare"><br>
-						<span><?php echo "$player[firstName] $player[lastName]"; ?></span><br>
-						<span>Nummer <?php echo $player['number']; ?></span>
-					</div>
+				<?php // Print all players in this team
+					foreach ($players as $player) { ?>
+					
+						<div class="player-img">
+							<img src="../img/player_noimg.png" alt="Bild p&aring; spelare"><br>
+							<span><?php echo "$player[firstName] $player[lastName]"; ?></span><br>
+							<span>Nummer <?php echo $player['number']; ?></span>
+						</div>
 
-				<?php }  
-			?>
+					<?php }  
+				?>
+
+			</div>
 
 		</div>
 	</div>

@@ -9,6 +9,7 @@ class Dal {
 	function __construct() {
 		try {
 			$dbh = new PDO("mysql:host=".DB_HOST.";port=".DB_PORT.";dbname=".DB_NAME, DB_USER, DB_PASS); // Creating the PDO object for db connection.
+			$dbh->exec("set names utf8"); // This set the encoding of all chars from MySQL to UTF8.
 			$dbh->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, 1); // Extra attributes added to the PDO object.
 			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Error attributes, if there is an error. Debugging etc.
 			$this->dbh = $dbh;
