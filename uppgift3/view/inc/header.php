@@ -45,7 +45,7 @@
 	<link rel="shortcut icon" href="<?php echo $con->getURL("img/favicons/favicon.ico");?>">
 
 	<!-- Touch Icons for Smartphones and Tablets -->
-	<link rel="icon" sizes="192x192" href="<?php $con->getURL("img/favicons/touch-icon-192x192.png");?>">
+	<link rel="icon" sizes="192x192" href="<?php echo $con->getURL("img/favicons/touch-icon-192x192.png");?>">
 	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="<?php echo $con->getURL("img/favicons/apple-touch-icon-180x180-precomposed.png");?>">
 	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="<?php echo $con->getURL("img/favicons/apple-touch-icon-152x152-precomposed.png");?>">
 	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="<?php echo $con->getURL("img/favicons/apple-touch-icon-120x120-precomposed.png");?>">
@@ -75,7 +75,7 @@
 					<span class="icon-bar"></span>
 				</button>
 
-				<a class="navbar-brand" href="<?php $con->getURL("index.php");?>">SUPERSPORT</a>
+				<a class="navbar-brand" href="<?php echo $con->getURL("index.php");?>">SUPERSPORT</a>
 			</div>
 
 			<div id="navbar" class="navbar-collapse collapse">
