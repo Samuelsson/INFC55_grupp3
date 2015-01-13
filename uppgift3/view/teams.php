@@ -16,13 +16,15 @@
 
 				<h1>Alla lag</h1>
 
+				<!-- We loop all teams here, atm this is just a filler -->
+
 				<?php 
 				$url = $controller->getURL("view/team_details.php?id=");
 
 					foreach($controller->getAllTeams() as $row) { ?>
 						<div class="team-image">
 						<a href="<?php echo $url . $row['teamId'] ?>"><img src="../img/team_noimg.png" alt="Bild p&aring; laget"></a>
-						<h4><a href="<?php echo $url . $row['teamId'] ?>"><?php echo $row['name']; ?></a></h4>
+						<h4><a href="<?php echo $url . $row['teamId'] ?>"><?php echo $row[name]; ?></a></h4>
 						</div>
 
 						<?php
