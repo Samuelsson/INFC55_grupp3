@@ -17,7 +17,7 @@
 				<h1>Alla lag</h1>
 
 				<?php 
-				$url = $controller->getURL("team_details.php?id=");
+				$url = $controller->getURL("view/team_details.php?id=");
 
 					foreach($controller->getAllTeams() as $row) { ?>
 						<div class="team-image">
