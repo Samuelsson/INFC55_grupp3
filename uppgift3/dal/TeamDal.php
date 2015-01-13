@@ -34,7 +34,7 @@ class TeamDal {
 	function getTeam($teamId) {
 		$query = $this->dbh->query("SELECT * FROM Teams WHERE teamId = '$teamId'");
 		$query->setFetchMode(\PDO::FETCH_CLASS, 'Team');
-		return $query->fetchAll();		
+		return $query->fetch();		
 	}
 }
 

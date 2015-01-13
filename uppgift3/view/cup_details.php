@@ -29,7 +29,7 @@
 						// Table for showing matches from the group stage.
 						$playoffList = array();
 						$matchList = $division->matchList;
-						if(isset($matchList)){
+						if(isset($matchList) && !empty($matchList)){
 							echo '<div class="table-responsive">';
 								echo '<table class="table table-striped">';
 									echo '<thead>';
@@ -64,6 +64,7 @@
 						//End group matches
 
 						// Table for showing group result
+						/*
 						if(isset($playoffList)){
 							echo '<div class="table-responsive">';
 								echo '<table class="table table-striped">';
@@ -89,10 +90,11 @@
 								echo '</table>';
 							echo '</div>';
 						}
+						*/
 						// End group result
 
 						// Table for showing the playoff stage
-						if(isset($division->matchList)){
+						if(isset($playoffList) && !empty($playoffList)){
 							echo '<h3>Slutspel</h3>';
 							echo '<div class="table-responsive">';
 								echo '<table class="table table-striped">';
@@ -107,16 +109,14 @@
 									echo '</thead>';
 									echo '<tbody>';
 									
-										foreach($division->matchList as $m){
-											if($m->type !== 'Group'){
-												echo '<tr>';
-													echo '<td>' . substr($m->date, 0, -3) . '</td>';
-													echo '<td>' . $m->type . '</td>';
-													echo '<td>' . $m->fieldCode . '</td>';
-													echo '<td>' . $m->homeTeam->name . ' - ' . $m->awayTeam->name . '</td>';
-													echo '<td>' . $m->homeScore . ' - ' . $m->awayScore . '</td>';
-												echo '</tr>';
-											}
+										foreach($playoffList as $m){								
+											echo '<tr>';
+												echo '<td>' . substr($m->date, 0, -3) . '</td>';
+												echo '<td>' . $m->type . '</td>';
+												echo '<td>' . $m->fieldCode . '</td>';
+												echo '<td>' . $m->homeTeam->name . ' - ' . $m->awayTeam->name . '</td>';
+												echo '<td>' . $m->homeScore . ' - ' . $m->awayScore . '</td>';
+											echo '</tr>';
 										}
 									
 									echo '</tbody>';
