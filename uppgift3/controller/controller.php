@@ -15,6 +15,7 @@ require (PATH . '/model/Team.php');
 require (PATH . '/model/Cup.php');
 require (PATH . '/model/Match.php');
 require (PATH . '/model/Helper.php');
+require (PATH . '/bll/BusinessLogic.php');
 global $LOGGED_IN; //Global indicating user login state.
 global $CURRENT_USER; //Global pointing at the current user object.
 $LOGGED_IN = false;
@@ -30,6 +31,7 @@ class Controller
 	private $teamDal;
 	private $matchDal;
 	private $helper;
+	private $bll;
 
 	public function __construct() {
 		$this->viewFunc = New ViewFunc;
@@ -42,6 +44,7 @@ class Controller
 		$this->matchDal = New MatchDal($this->dbh);
 		$this->helper = New Helper($this);
 		$this->teamDal = New TeamDal($this->dbh);
+		$this->bll = New BusinessLogic;
 	}
 
 	//---------------View functions--------------
@@ -111,7 +114,7 @@ class Controller
 				$match->awayTeam = $this->teamDal->getTeam($match->awayTeamId);
 			}
 
-			$division->teamList = $this->calculateGroup($division->teamList, $division->matchList);
+			$division->teamList = $this->bll->calculateGroup($division->teamList, $division->matchList);
 		}
 
 		return $cup;
@@ -151,95 +154,7 @@ class Controller
 
 	//=============OTHER STUFF============
 
-	public function calculateGroup($teams, $matches ) {
-		foreach ($teams as $t) {
-			$t->points = 0;
-			$t->wins = 0;
-			$t->ties = 0;
-			$t->losses = 0;
-			$t->goalsScored = 0;
-			$t->goalsConceded = 0;
-		}
 
-		if(isset($matches) && !empty($teams) && isset($teams) && !empty($teams)){
-			foreach($matches as $m){
-				if($m->type === 'Group'){
-					$tie = false;
-					$winner = new Team;
-					$loser = new Team;
-
-					$winner->goalsScored = 0;
-					$winner->goalsConceded = 0;
-					$loser->goalsScored = 0;
-					$loser->goalsConceded = 0;
-					
-					if($m->homeScore === $m->awayScore){
-						
-						$tie = true;
-						$winner = $m->homeTeam;
-						$winner->goalsScored = $m->homeScore;
-						$winner->goalsConceded = $m->awayScore;
-
-						$loser = $m->awayTeam;
-						$loser->goalsScored = $m->awayScore;
-						$loser->goalsConceded = $m->homeScore;
-
-					} elseif($m->homeScore > $m->awayScore){
-					
-						$winner = $m->homeTeam;
-						$winner->goalsScored = $m->homeScore;
-						$winner->goalsConceded = $m->awayScore;
-
-						$loser = $m->awayTeam;
-						$loser->goalsScored = $m->awayScore;
-						$loser->goalsConceded = $m->homeScore;
-
-					} elseif($m->awayScore > $m->homeScore) {
-						
-						$winner = $m->awayTeam;
-						$winner->goalsScored = $m->awayScore;
-						$winner->goalsConceded = $m->homeScore;
-
-						$loser = $m->homeTeam;
-						$loser->goalsScored = $m->homeScore;
-						$loser->goalsConceded = $m->awayScore;
-					}
-
-					foreach($teams as $t) {
-						if($tie === false) {
-							if($t->teamId === $winner->teamId){
-								$t->points +=3;
-								$t->wins +=1;
-
-								$t->goalsScored += $winner->goalsScored;
-								$t->goalsConceded += $winner->goalsConceded;
-
-							} elseif($t->teamId === $loser->teamId){
-								$t->losses +=1;
-								$t->goalsScored += $loser->goalsScored;
-								$t->goalsConceded += $loser->goalsConceded;
-
-							}
-						} elseif($tie === true) {
-							if($t->teamId === $winner->teamId) {
-								$t->ties +=1;
-								$t->points +=1;
-								$winner->goalsScored = $m->homeScore;
-								$winner->goalsConceded = $m->awayScore;
-							} elseif($t->teamId === $loser->teamId) {
-								$t->ties +=1;
-								$t->points +=1;
-								$loser->goalsScored = $m->awayScore;
-								$loser->goalsConceded = $m->homeScore;
-							}
-						}
-					}
-				}
-			}
-
-		} 
-		return $teams;
-	}
 }
 
 
