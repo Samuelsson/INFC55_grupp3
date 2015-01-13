@@ -24,7 +24,7 @@
 
 			<h1><?php echo $team->name; ?></h1>
 
-			<p class="team-description">H&auml;r har vi description om laget. Bacon ipsum dolor amet beef kevin swine hamburger brisket spare ribs pig corned beef flank. Venison picanha turducken boudin pastrami. Spare ribs andouille pig kevin capicola short loin pork ground round salami chicken. Cow shank pancetta pork chop drumstick ham flank.</p>
+			<p class="team-description"><?php echo $team->description; ?></p>
 
 			<h2>Spelare</h2>
 
