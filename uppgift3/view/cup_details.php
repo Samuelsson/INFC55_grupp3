@@ -18,13 +18,11 @@
 				$cup = $controller->getCupEager($_GET['id']);
 				echo "<h1>" . $cup->name . " " . $cup->year . "</h1>";
 				echo "<p>" . $cup->description . "</p>";
-				
+	
 				foreach($cup->divisionList as $division) {
 					echo '<div>';
 						echo '<h2>' . $division->name . '</h2>';
 						echo '<h3>Gruppspel</h3>';
-
-
 
 						// Table for showing matches from the group stage.
 						$playoffList = array();
@@ -60,42 +58,55 @@
 									echo '</tbody>';
 								echo '</table>';
 							echo '</div>';
-						}	
+						} else {
+							echo '<p>Här fanns det inga matcher än =/</p>';
+						}
 						//End group matches
 
 						// Table for showing group result
-						/*
-						if(isset($playoffList)){
+						echo '<h3>Resultat</h3>';
+						$results = $division->teamList;
+						
+						if(isset($results)){
 							echo '<div class="table-responsive">';
 								echo '<table class="table table-striped">';
 									echo '<thead>';
 										echo '<tr>';
 											echo '<th>Placering</th>
 												<th>Lag</th>
+												<th>Vinster</th>
+												<th>Oavgjorda</th>
+												<th>Förluster</th>
+												<th>Gjorda mål</th>
+												<th>Insläppta mål</th>
+												<th>Målskillnad</th>
 												<th>Poäng</th>';
 										echo '</tr>';
 									echo '</thead>';
 									echo '<tbody>';
-										foreach($playoffList as $m) {
-											if($m->type == 'Group') {
-												echo '<tr>';
-												//First column (start-time and end time) is not finished yet!
-													echo '<td>' .   '</td>';
-													echo '<td>' .   '</td>';
-													echo '<td>' .  '</td>';
-												echo '</tr>';
-											}
+										foreach($results as $t) {
+											echo '<tr>';
+											//First column (start-time and end time) is not finished yet!
+												echo '<td>' .   '</td>';
+												echo '<td>' . $t->name . '</td>';
+												echo '<td>' . $t->wins . '</td>';
+												echo '<td>' . $t->ties . '</td>';
+												echo '<td>' . $t->losses . '</td>';
+												echo '<td>' . $t->goalsScored . '</td>';
+												echo '<td>' . $t->goalsConceded . '</td>';
+												echo '<td>' . ($t->goalsScored-$t->goalsConceded) . '</td>';
+												echo '<td>' . $t->points . '</td>';
+											echo '</tr>';							
 										}			
 									echo '</tbody>';
 								echo '</table>';
 							echo '</div>';
 						}
-						*/
 						// End group result
 
 						// Table for showing the playoff stage
+						echo '<h3>Slutspel</h3>';
 						if(isset($playoffList) && !empty($playoffList)){
-							echo '<h3>Slutspel</h3>';
 							echo '<div class="table-responsive">';
 								echo '<table class="table table-striped">';
 									echo '<thead>';
@@ -122,6 +133,8 @@
 									echo '</tbody>';
 								echo '</table>';
 							echo '</div>';
+						} else {
+							echo '<p>Här fanns det inga matcher än =/</p>';
 						}
 						// End playoff stage
 
