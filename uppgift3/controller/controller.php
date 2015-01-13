@@ -104,24 +104,23 @@ class Controller
 		return $this->cupDal->getAllCups();
 	}
 
-	public function getCupEager($cupId) {
+	/* 
+	Maybe change this functions. It is called from the cup_details-page,
+	but at the moment it is only the divisionList which is used on that page.
+	The foreach loop is useless at the monent.
+	*/
+	public function getCupEager($cupId) { 
 		$cup = $this->cupDal->getCup($cupId);
 
 		$cup->divisionList = $this->divisionDal->getDivisionsForCup($cup->cupId);
 
-		foreach($cup->divisionList as $division) {
-			
+		/*
+		foreach($cup->divisionList as $division) {	
 			$division->teamList = $this->teamDal->getTeamsForDivision($division->divisionId);	
 			$division->matchList = $this->matchDal->getMatchesForDivision($division->divisionId);
-			
-			foreach($division->matchList as $match) {
-				$match->homeTeam = $this->getTeam($match->homeTeamId);
-				$match->awayTeam = $this->getTeam($match->awayTeamId);
-			}
-
-			$division->teamList = $this->bll->calculateGroup($division->teamList, $division->matchList);
 		}
-
+		*/
+		
 		return $cup;
 	}
 
@@ -164,6 +163,28 @@ class Controller
 	public function getPlayersByTeam($tid) {
 		return $this->playerDal->getPlayersByTeam($tid);
 	}
+
+	//================DIVISIONS======================
+	public function getDivisionEager($did) {
+	
+		$division = $this->divisionDal->getDivision($did);
+
+		$division->cup = $this->cupDal->getCup($division->cupId);
+	
+		$division->teamList = $this->teamDal->getTeamsForDivision($division->divisionId);
+		
+		$division->matchList = $this->matchDal->getMatchesForDivision($division->divisionId);
+		foreach($division->matchList as $match) {
+				$match->homeTeam = $this->getTeam($match->homeTeamId);
+				$match->awayTeam = $this->getTeam($match->awayTeamId);
+		}
+
+		$division = $this->bll->calculateGroup($division);
+
+		return $division;
+	}
+
+
 }
 
 

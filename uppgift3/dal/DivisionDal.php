@@ -10,9 +10,8 @@
 
 		function getDivision($divisionId) {
 			
-			$query = $this->dbh->query("SELECT * FROM Division WHERE divisionId = '$divisionId'");
+			$query = $this->dbh->query("SELECT * FROM Divisions WHERE divisionId = '$divisionId'");
 			$query->setFetchMode(\PDO::FETCH_CLASS, 'Division');
-
 			return $query->fetch();
 		}
 

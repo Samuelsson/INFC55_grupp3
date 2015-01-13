@@ -1,7 +1,10 @@
 <?php
 
 class BusinessLogic {
-		public function calculateGroup($teams, $matches ) {
+	public function calculateGroup($division) {
+		$teams = $division->teamList;
+		$matches = $division->matchList;
+
 		foreach ($teams as $t) {
 			$t->points = 0;
 			$t->wins = 0;
@@ -13,7 +16,7 @@ class BusinessLogic {
 
 		if(isset($matches) && !empty($teams) && isset($teams) && !empty($teams)){
 			foreach($matches as $m){
-				if($m->type === 'Group'){
+				if($m->type === 'Group') {
 					$tie = false;
 					$winner = new Team;
 					$loser = new Team;
@@ -84,11 +87,29 @@ class BusinessLogic {
 							}
 						}
 					}
+				} elseif ($m->type === 'Final') {
+					if($m->homeScore > $m->awayScore){
+						$division->firstPlace = $m->homeTeam;
+						$division->secondPlace = $m->awayTeam;
+					} elseif($m->awayScore > $m->homeScore) {
+						
+						$division->firstPlace = $m->awayTeam;
+						$division->secondPlace = $m->homeTeam;
+					}
+				} elseif ($m->type === 'ThirdPlace') {
+					if($m->homeScore > $m->awayScore){
+						$division->thirdPlace = $m->homeTeam;
+					} elseif($m->awayScore > $m->homeScore) {
+						
+						$division->thirdPlace = $m->awayTeam;
+					}
 				}
 			}
 
-		} 
-		return $teams;
+		}
+		$division->matchList = $matches;
+		$division->teamList = $teams;
+		return $division;
 	}
 }
 
