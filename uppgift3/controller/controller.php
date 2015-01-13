@@ -16,6 +16,9 @@ require (PATH . '/model/Cup.php');
 require (PATH . '/model/Match.php');
 require (PATH . '/model/Helper.php');
 require (PATH . '/bll/BusinessLogic.php');
+require (PATH . '/model/Player.php');
+require (PATH . '/dal/PlayerDal.php');
+
 global $LOGGED_IN; //Global indicating user login state.
 global $CURRENT_USER; //Global pointing at the current user object.
 $LOGGED_IN = false;
@@ -32,6 +35,7 @@ class Controller
 	private $matchDal;
 	private $helper;
 	private $bll;
+	private $playerDal;
 
 	public function __construct() {
 		$this->viewFunc = New ViewFunc;
@@ -44,6 +48,7 @@ class Controller
 		$this->matchDal = New MatchDal($this->dbh);
 		$this->helper = New Helper($this);
 		$this->teamDal = New TeamDal($this->dbh);
+		$this->playerDal = New PlayerDal($this->dbh);
 		$this->bll = New BusinessLogic;
 	}
 
@@ -110,8 +115,8 @@ class Controller
 			$division->matchList = $this->matchDal->getMatchesForDivision($division->divisionId);
 			
 			foreach($division->matchList as $match) {
-				$match->homeTeam = $this->teamDal->getTeam($match->homeTeamId);
-				$match->awayTeam = $this->teamDal->getTeam($match->awayTeamId);
+				$match->homeTeam = $this->getTeam($match->homeTeamId);
+				$match->awayTeam = $this->getTeam($match->awayTeamId);
 			}
 
 			$division->teamList = $this->bll->calculateGroup($division->teamList, $division->matchList);
@@ -151,10 +156,14 @@ class Controller
 		return $this->teamDal->getAllTeams();
 	}
 
+	public function getTeam($tid) {
+		return $this->teamDal->getTeam($tid);
+	}
 
-	//=============OTHER STUFF============
-
-
+	//=================PLAYERS=======================
+	public function getPlayersByTeam($tid) {
+		return $this->playerDal->getPlayersByTeam($tid);
+	}
 }
 
 
