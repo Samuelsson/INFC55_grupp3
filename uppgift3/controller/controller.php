@@ -21,7 +21,6 @@ global $LOGGED_IN; //Global indicating user login state.
 global $CURRENT_USER; //Global pointing at the current user object.
 $LOGGED_IN = false;
 
-
 class Controller
 {
 	public $viewFunc;
