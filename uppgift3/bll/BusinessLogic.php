@@ -161,7 +161,7 @@ class BusinessLogic {
 			for($x = 0 ; $x < $nrOfRounds ; $x++){
 		
 				$firstPos = 0;
-				$lastPos = $nrOfRounds; /* $nrOfRounds is essentially the last position since it is assigned count($teams) - 1 in the beginning of the function */
+				$lastPos = $nrOfRounds; // $nrOfRounds is essentially the last position since it is assigned count($teams) - 1 in the beginning of the function
 		
 				// Begin Y for-loop
 				for($y = 0 ; $y < $nrOfMatchesPerRound ; $y++) {
@@ -173,7 +173,7 @@ class BusinessLogic {
 				} // End Y for-loop
 				$roundNr++;
 
-				$temp = $teams[$nrOfRounds]; /* Again, nrOfRounds is essentially last value in the array */
+				$temp = $teams[$nrOfRounds]; // Again, nrOfRounds is essentially last value in the array
 				
 				for($z = count($teams) -2 ; $z > 0; $z--) {
 					$teams[$z+1] = $teams[$z];
