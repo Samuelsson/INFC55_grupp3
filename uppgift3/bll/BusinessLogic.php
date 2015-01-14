@@ -1,5 +1,9 @@
 <?php
 
+require_once('../model/Team.php');
+require_once('../model/Division.php');
+require_once('../model/Match.php');
+
 class BusinessLogic {
 	public function calculateGroup($division) {
 		$teams = $division->teamList;
@@ -73,7 +77,7 @@ class BusinessLogic {
 								$t->goalsConceded += $loser->goalsConceded;
 
 							}
-						} elseif($tie === true) {
+						} elseif($tie === true && $m->status === 'finished') {
 							if($t->teamId === $winner->teamId) {
 								$t->ties +=1;
 								$t->points +=1;
@@ -110,6 +114,89 @@ class BusinessLogic {
 		$division->matchList = $matches;
 		$division->teamList = $teams;
 		return $division;
+	}
+
+	public function generateSchedule($teams){
+		if(count($teams) % 2 == 0) {
+			return $this->generateEven($teams);
+		}
+			
+	}
+
+	public function generateEven($teams, $doubleMeetings) {
+		shuffle($teams);
+
+		$matchList = array(); // the list that will contain all the matches.
+		$nrOfRounds = (count($teams) -1);
+		$nrOfMatchesPerRound = (count($teams) / 2);
+		$roundNr = 1;
+
+		// Begin X for-loop
+		for($x = 0 ; $x < $nrOfRounds ; $x++){
+		
+			$firstPos = 0;
+			$lastPos = $nrOfRounds; /* $nrOfRounds is essentially the last position since it is assigned count($teams) - 1 in the beginning of the function */
+		
+			// Begin Y for-loop
+			for($y = 0 ; $y < $nrOfMatchesPerRound ; $y++) {		
+
+				$matchList[] = $this->createMatch($teams[$firstPos], $teams[$lastPos], $roundNr);
+
+				$firstPos += 1;
+				$lastPos -= 1;
+			} // End Y for-loop
+			$roundNr++;
+			
+
+			$temp = $teams[$nrOfRounds]; /* Again, nrOfRounds is essentially last value in the array */
+			for($z = count($teams) -2 ; $z > 0; $z--) {
+				$teams[$z+1] = $teams[$z];
+			}
+			$teams[1] = $temp;
+		} //End  X-for loop
+
+		//Not working yet.
+		/*
+		if($doubleMeetings === TRUE) {
+			for($x = 0 ; $x < $nrOfRounds ; $x++){
+		
+				$firstPos = 0;
+				$lastPos = $nrOfRounds; /* $nrOfRounds is essentially the last position since it is assigned count($teams) - 1 in the beginning of the function */
+		
+				// Begin Y for-loop
+				for($y = 0 ; $y < $nrOfMatchesPerRound ; $y++) {
+
+					$matchList[] = $this->createMatch($teams[$firstPos], $teams[$lastPos], $roundNr);
+
+					$firstPos += 1;
+					$lastPos -= 1;
+				} // End Y for-loop
+				$roundNr++;
+
+				$temp = $teams[$nrOfRounds]; /* Again, nrOfRounds is essentially last value in the array */
+				
+				for($z = count($teams) -2 ; $z > 0; $z--) {
+					$teams[$z+1] = $teams[$z];
+				}
+				$teams[1] = $temp;
+			}
+		}
+		*/
+
+		return $matchList;
+	} // end function
+
+	public function createMatch($firstTeam, $secondTeam, $roundNr) {
+		$match = new Match;
+		$match->round = $roundNr;
+
+		$everydayImShuffling = array($firstTeam, $secondTeam);
+		shuffle($everydayImShuffling);
+		
+		$match->homeTeam = $everydayImShuffling[0];
+		$match->awayTeam = $everydayImShuffling[1];
+
+		return $match;
 	}
 }
 

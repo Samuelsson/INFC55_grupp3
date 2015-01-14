@@ -159,6 +159,10 @@ class Controller
 		return $this->teamDal->getTeam($tid);
 	}
 
+	public function getTeamsForDivision($did) {
+		return $this->teamDal->getTeamsForDivision($did);
+	}
+
 	//=================PLAYERS=======================
 	public function getPlayersByTeam($tid) {
 		return $this->playerDal->getPlayersByTeam($tid);
@@ -184,6 +188,11 @@ class Controller
 		return $division;
 	}
 
+	public function generateScheduleForDivision($did, $doubleMeetings) {
+		$teams = $this->getTeamsForDivision($did);
+		return $this->bll->generateSchedule($teams, $doubleMeetings);
+
+	}
 
 }
 
