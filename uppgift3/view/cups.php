@@ -19,7 +19,7 @@
 
 			<h1>Cuper</h1>
 
-				<ul>
+				<ul class="cups-list">
 					<?php
 						// This loops all the cups and display them in table view
 						$cupList = $controller->getAllCups();

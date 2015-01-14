@@ -16,6 +16,7 @@
 	:: Navigation
 	:: Main Content
 	:: Sidebar Right
+	:: Page - Admin
 	:: Page - Cups
 	:: Page - Login
 	:: Page - Teams
@@ -182,10 +183,24 @@
 
 
 /* ==========================================================================================
+	Page - Admin
+============================================================================================= */
+
+	.admin-form {
+		max-width: 800px;
+	}
+
+
+/* ==========================================================================================
 	Page - Cups
 ============================================================================================= */
 	
-	
+	.cups-list {
+		list-style: none;
+
+		li {
+		}
+	}
 
 
 /* ==========================================================================================
@@ -234,9 +249,16 @@
 	
 	.team-image,
 	.player-img {
-		padding: 10px;
-		display: inline-block;
+		margin: 10px;
+		display: inline-block; // Display all the teams inline and not above each other
 		text-align: center;
+		top: 0;
+
+		img {
+			width: 150px;
+			height: 150px;
+			border: 1px solid #eee;
+		}
 	}
 
 
