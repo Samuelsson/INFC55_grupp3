@@ -1,8 +1,8 @@
 <?php
 
-require_once('../model/Team.php');
-require_once('../model/Division.php');
-require_once('../model/Match.php');
+require_once('model/Team.php');
+require_once('model/Division.php');
+require_once('model/Match.php');
 
 class BusinessLogic {
 	public function calculateGroup($division) {
