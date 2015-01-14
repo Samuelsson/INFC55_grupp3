@@ -18,6 +18,9 @@
 			$matchList = $division->matchList;
 			$teamList = $division->teamList;
 
+			$s ='<a href="' . $controller->getURL("view/match_details.php") . '?id=';
+			$tlink = '<a href="' . $controller->getURL("view/team_details.php") . '?id=';	
+
 			$playoffList = array();
 		}
 	?>
@@ -49,10 +52,11 @@
 									foreach($matchList as $m) {
 										if($m->type == 'Group') {
 											echo '<tr>';
+											
 												//First column (start-time and end time) is not finished yet!
 												echo '<td>' . substr($m->date, 0, -3) . '</td>';
 												echo '<td>' . $m->fieldCode . '</td>';
-												echo '<td>' . $m->homeTeam->name . ' - ' . $m->awayTeam->name . '</td>';
+												echo '<td>' . $s . $m->matchId . '">' . $m->homeTeam->name . ' - ' . $m->awayTeam->name . '</a></td>';
 												echo '<td>' . $m->homeScore . ' - ' . $m->awayScore . '</td>';
 											echo '</tr>';
 										} else {
@@ -99,7 +103,7 @@
 								echo '<tr>';
 								//<!--First column (placement) is not finished yet! -->
 								echo '<td>' . '</td>';
-								echo '<td>' . $t->name . '</td>';
+								echo '<td>' . $tlink . $t->teamId . '">' . $t->name . '</a></td>';
 								echo '<td>' . $t->wins . '</td>';
 								echo '<td>' . $t->ties . '</td>';
 								echo '<td>' . $t->losses . '</td>';
@@ -146,7 +150,7 @@
 												echo '<td>' . substr($m->date, 0, -3) . '</td>';
 												echo '<td>' . $m->type . '</td>';
 												echo '<td>' . $m->fieldCode . '</td>';
-												echo '<td>' . $m->homeTeam->name . ' - ' . $m->awayTeam->name . '</td>';
+												echo '<td>' . $s . $m->matchId . '">' . $m->homeTeam->name . ' - ' . $m->awayTeam->name . '</a></td>';
 												echo '<td>' . $m->homeScore . ' - ' . $m->awayScore . '</td>';
 											echo '</tr>';
 										}

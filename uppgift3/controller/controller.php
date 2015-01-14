@@ -104,6 +104,10 @@ class Controller
 		return $this->cupDal->getAllCups();
 	}
 
+	public function getCup($cid) {
+		return $this->cupDal->getCup($cid);
+	}
+
 	/* 
 	Maybe change this functions. It is called from the cup_details-page,
 	but at the moment it is only the divisionList which is used on that page.
@@ -188,10 +192,34 @@ class Controller
 		return $division;
 	}
 
-	public function generateScheduleForDivision($did, $doubleMeetings) {
-		$teams = $this->getTeamsForDivision($did);
-		return $this->bll->generateSchedule($teams, $doubleMeetings);
+	public function getDivision($did) {
+		return $this->divisionDal->getDivision($did);
+	}
 
+	public function generateScheduleForDivision($did) {
+		$teams = $this->getTeamsForDivision($did);
+		return $this->bll->generateSchedule($teams);
+
+	}
+
+	public function sortResultByPoints($teams) {
+		$this->bll->sortResultByPoints($teams);
+	}
+
+	//===================MATCHES===================
+	public function getMatch($mid) {
+		return $this->matchDal->getMatch($mid);
+	}
+
+	public function getMatchEager($mid) {
+		$match = $this->getMatch($mid);
+
+		$match->division = $this->getDivision($match->divisionId);
+		$match->division->cup = $this->getCup($match->division->cupId);
+		$match->homeTeam = $this->getTeam($match->homeTeamId);
+		$match->awayTeam = $this->getTeam($match->awayTeamId);
+
+		return $match;
 	}
 
 }
