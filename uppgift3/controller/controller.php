@@ -188,7 +188,7 @@ class Controller
 		}
 
 		$division = $this->bll->calculateGroup($division);
-
+		$division->teamList = $this->sortResultByPoints($division->teamList);
 		return $division;
 	}
 
@@ -203,7 +203,7 @@ class Controller
 	}
 
 	public function sortResultByPoints($teams) {
-		$this->bll->sortResultByPoints($teams);
+		return $this->bll->sortResultByPoints($teams);
 	}
 
 	//===================MATCHES===================

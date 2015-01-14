@@ -102,7 +102,7 @@
 							foreach($teamList as $t) {			
 								echo '<tr>';
 								//<!--First column (placement) is not finished yet! -->
-								echo '<td>' . '</td>';
+								echo '<td>' . $t->position . '</td>';
 								echo '<td>' . $tlink . $t->teamId . '">' . $t->name . '</a></td>';
 								echo '<td>' . $t->wins . '</td>';
 								echo '<td>' . $t->ties . '</td>';

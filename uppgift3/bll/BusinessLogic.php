@@ -117,6 +117,7 @@ class BusinessLogic {
 	}
 
 	public function generateSchedule($teams){
+		shuffle($teams);
 		if(count($teams) % 2 == 0) {
 			return $this->generateEven($teams);
 		} elseif(count($teams)) {
@@ -126,8 +127,6 @@ class BusinessLogic {
 	}
 
 	public function generateEven($teams) {
-		shuffle($teams);
-
 		$matchList = array(); // the list that will contain all the matches.
 		$nrOfRounds = (count($teams) -1);
 		$nrOfMatchesPerRound = (count($teams) / 2);
@@ -161,8 +160,6 @@ class BusinessLogic {
 	} // end function
 
 	public function generateUneven($teams) {
-		shuffle($teams);
-
 		$matchList = array(); // the list that will contain all the matches.
 		$nrOfRounds = (count($teams) -1);
 		$nrOfMatchesPerRound = (count($teams) / 2);
@@ -207,16 +204,34 @@ class BusinessLogic {
 	}
 
 	public function sortResultByPoints($teams) {
-		$sortedList = array();
 
 		$size = count($teams);
 
+		//echo 'Before sort' . '</br>';
+		/*
+		for($x = 0; $x < $size; $x++){
+			echo $teams[$x]->name . ' ' .$teams[$x]->points . '</br>';
+		}
+		*/
+
 		for($i = 0 ; $i < $size ; $i++) {
 			for($j = 0 ; $j < $size; $j++){
-			//	if()
+				if($teams[$i]->points > $teams[$j]->points){
+					$temp = $teams[$i];
+					$teams[$i] = $teams[$j];
+					$teams[$j] = $temp;
+				}
 			}
 		}
 
+
+	//	echo 'Arfter sort' . '</br>';
+		
+		for($x = 0; $x < $size; $x++){
+			$teams[$x]->position = $x+1;
+		}
+		
+		return $teams;
 	}
 }
 
