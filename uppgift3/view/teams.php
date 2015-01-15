@@ -12,7 +12,7 @@
 	<div class="container-fluid">
 		<div class="row">
 
-			<div class="col-md-12">
+			<div class="col-sm-8 col-md-9 cups main-content">
 
 				<h1>Alla lag</h1>
 
@@ -31,6 +31,10 @@
 				?>
 	
 			</div>
+
+			<?php
+				$controller->getSidebarRight(); // Gets the sidebar and loads it after the main content
+			?>
 
 		</div>
 	</div>

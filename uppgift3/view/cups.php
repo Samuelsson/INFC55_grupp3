@@ -14,10 +14,9 @@
 	<div class="container-fluid">
 		<div class="row">
 
+			<div class="col-sm-8 col-md-9 cups main-content">
 
-		<div class="col-md-12">
-
-			<h1>Cuper</h1>
+				<h1>Cuper</h1>
 
 				<ul class="cups-list">
 					<?php
@@ -25,15 +24,17 @@
 						$cupList = $controller->getAllCups();
 
 						foreach($cupList as $cup) {
-							echo '<li><a href="';
-							echo $controller->getURL("view/cup_details.php");
-							echo '?id=' . $cup->cupId . '">' . $cup->name . " " . $cup->year . '</a></li>';
+							echo '<li><a href="' . $controller->getURL("view/cup_details.php") . '?id=' . $cup->cupId . '">' . $cup->name . " " . $cup->year . '</a></li>';
 						}
 
 					?>
 				</ul>
 
-		</div>
+			</div>
+
+			<?php
+				$controller->getSidebarRight(); // Gets the sidebar and loads it after the main content
+			?>
 
 		</div>
 	</div>

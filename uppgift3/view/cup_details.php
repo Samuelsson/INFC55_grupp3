@@ -12,7 +12,8 @@
 	if(!isset($_GET['id']) || empty($_GET['id'])) {
 		$redirectURL = $controller->getURL("view/cups.php");
 		redirect_to($redirectURL);
-	} else {
+	}
+	else {
 		$cup = $controller->getCupEager($_GET['id']);
 	}
 ?>
@@ -25,20 +26,17 @@
 				echo "<p>" . $cup->description . "</p>";
 			?>
 
+			<div class="division">
+
 			<?php
 
 				foreach($cup->divisionList as $division) { 
 					$url = $controller->getURL("view/division_details.php?id=") . $division->divisionId;
-			?>
-				<!-- Below: No idea what is the best to have here -->
-				<div class="col-sm-3 col-md-4 division">
-					<a href="<?php echo $url ?>"><h2><?php echo $division->name; ?></h2></a>
-
-				</div>
-
-			<?php
+					echo '<h2><a href="' . $url . '">' . $division->name . '</a></h2>';
 				}
 			?>
+
+			</div>
 
 		</div>
 	</div>

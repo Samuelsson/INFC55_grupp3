@@ -24,7 +24,8 @@
 			$tlink = '<a href="' . $controller->getURL("view/team_details.php") . '?id=';	
 
 			$playoffList = array();
-		} elseif( !isset($_GET['id']) || empty($_GET['id']) ) {
+		} 
+		elseif( !isset($_GET['id']) || empty($_GET['id']) ) {
 			$redirectURL = $controller->getURL("view/cups.php");
 			redirect_to($redirectURL);
 		}
@@ -46,7 +47,7 @@
 							<table class="table table-striped">
 								 <thead>
 									 <tr>
-										 <th>Match-tid</th>
+										<th>Match-tid</th>
 										<th>Plan</th>
 										<th>Lag</th>
 										<th>Resultat</th>
@@ -74,11 +75,10 @@
 							</table>
 						</div>
 						<?php
-						} else {
-						?>
-							<p>Det finns inget spelschema än =/</p>
-						<?php
-						}
+							} 
+							else {
+								echo "<p>Det finns inget spelschema än =/</p>";
+							}
 						?>
 				</div>
 
@@ -124,10 +124,9 @@
 						</table>
 					</div>
 					<?php
-						} else {
-					?>
-						<p>Det finns inget resultat än =/</p>
-					<?php
+						} 
+						else {
+							echo "<p>Det finns inget resultat än =/</p>";
 						}
 					?>
 				</div>
@@ -166,19 +165,18 @@
 
 
 					<?php
-						} else {
-					?>
-						<p>Det finns inget slutspel än =/</p>
-					<?php
+						} 
+						else {
+							echo "<p>Det finns inget slutspel än =/</p>";
 						}
 					?>
 
 					<?php
 					//Raderna nedan skriver ut namnet för vinnaren, tvåan och trean av divisionen.
 					//Vinnaren av divisionen finns i variabeln $division->firstPlace som ska vara av typen Team
-					echo '<p>Förstaplats: ' . $division->firstPlace->name . "</br>";
+					echo '<p>Förstaplats: ' . $division->firstPlace->name . '</br>';
 					//Tvåan finns $division->secondPlace
-					echo 'Andraplats: ' . $division->secondPlace->name . "</br>";
+					echo 'Andraplats: ' . $division->secondPlace->name . '</br>';
 					//Trean finns i $division->thirdPlace
 					echo ' Tredjeplats: ' . $division->thirdPlace->name . '</p>';
 					?>
@@ -186,10 +184,11 @@
 
 
 			</div>
+
+			<?php
+				$controller->getSidebarRight(); // Gets the sidebar and loads it after the main content
+			?>
 		</div>
-		<?php
-			$controller->getSidebarRight(); // Gets the sidebar and loads it after the main content
-		?>
 	</div>
 
 <?php

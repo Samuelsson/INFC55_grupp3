@@ -22,10 +22,11 @@
 			$c ='<a href="' . $controller->getURL("view/cup_details.php") . '?id=';	
 			$d ='<a href="' . $controller->getURL("view/division_details.php") . '?id=';	
 			$t ='<a href="' . $controller->getURL("view/team_details.php") . '?id=';	
-		} elseif (!isset($_GET['id']) || empty($_GET['id'])) {
-		$redirectURL = $controller->getURL("view/cups.php");
-		redirect_to($redirectURL);
-	}
+		}
+		elseif (!isset($_GET['id']) || empty($_GET['id'])) {
+			$redirectURL = $controller->getURL("view/cups.php");
+			redirect_to($redirectURL);
+		}
 
 	?>
 
@@ -37,15 +38,9 @@
 
 				<div id="match">
 					<?php 
-					
 						echo $t . $homeTeam->teamId. '">' . $homeTeam->name . '</a>' . $match->homeScore . ' -  '. $match->awayScore  . $t . $homeTeam->teamId .  '">' . $awayTeam->name . '</a></br>';
-					
-
 					?>
 				</div>
-
-
-
 
 			</div>
 		</div>
