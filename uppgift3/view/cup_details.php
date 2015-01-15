@@ -12,7 +12,8 @@
 	if(!isset($_GET['id']) || empty($_GET['id'])) {
 		$redirectURL = $controller->getURL("view/cups.php");
 		redirect_to($redirectURL);
-	} else {
+	}
+	else {
 		$cup = $controller->getCupEager($_GET['id']);
 	}
 ?>

@@ -24,7 +24,8 @@
 			$tlink = '<a href="' . $controller->getURL("view/team_details.php") . '?id=';	
 
 			$playoffList = array();
-		} elseif( !isset($_GET['id']) || empty($_GET['id']) ) {
+		} 
+		elseif( !isset($_GET['id']) || empty($_GET['id']) ) {
 			$redirectURL = $controller->getURL("view/cups.php");
 			redirect_to($redirectURL);
 		}
@@ -183,10 +184,11 @@
 
 
 			</div>
+
+			<?php
+				$controller->getSidebarRight(); // Gets the sidebar and loads it after the main content
+			?>
 		</div>
-		<?php
-			$controller->getSidebarRight(); // Gets the sidebar and loads it after the main content
-		?>
 	</div>
 
 <?php
