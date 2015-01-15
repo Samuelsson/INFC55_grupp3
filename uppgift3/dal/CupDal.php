@@ -22,6 +22,29 @@
 
 			return $query->fetchAll();
 		}
+
+		function getLatestCupForUser($uid) {
+			$query = $this->dbh->query("SELECT * 
+										FROM Cups 
+										WHERE userId = $uid 
+										ORDER BY cupId 
+										DESC LIMIT 1;"
+										);
+			$query->setFetchMode(\PDO::FETCH_CLASS, 'Cup');
+
+			return $query->fetch();
+
+		}
+		public function getLatestCup() {
+			$query = $this->dbh->query("SELECT * 
+										FROM Cups  
+										ORDER BY cupId 
+										DESC LIMIT 1;"
+										);
+
+			$query->setFetchMode(\PDO::FETCH_CLASS, 'Cup');
+			return $query->fetch();
+		}
 	}
 
 ?>
