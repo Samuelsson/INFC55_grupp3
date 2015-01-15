@@ -15,9 +15,9 @@
 		echo 'fail';
 	}
 
-	if($CURRENT_USER->accessLevel == 2) {
+	if($CURRENT_USER->accessLevel == 7) {
 		$cup = $controller->getLatestCupForUser($CURRENT_USER->userId);
-	} elseif($CURRENT_USER->accessLevel == 1) {
+	} elseif($CURRENT_USER->accessLevel == 9) {
 		$cup = $controller->getLatestCup();
 	}
 ?>

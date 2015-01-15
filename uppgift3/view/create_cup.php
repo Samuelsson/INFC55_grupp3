@@ -7,11 +7,11 @@
 	$controller->setAccessLevel(2);
 	$controller -> getHeader(); // Loads the header before the main content
 
-	if( $CURRENT_USER->accessLevel == 1 ) {
+	if( $CURRENT_USER->accessLevel == 9 ) {
 		
 		$users = $controller->getCupMasters();
 	
-	} elseif ( $CURRENT_USER->accessLevel == 2 ) {
+	} elseif ( $CURRENT_USER->accessLevel == 7 ) {
 
 		$users = $CURRENT_USER;
 		echo $controller->CURRENT_USER->email;
@@ -75,6 +75,20 @@
 					
 						</div>
 					
+
+						<hr>
+						<div class="division">
+							<div class ="form-group">
+								<label for="divisionName">Divisionsnamn</label>
+								<input id="divisionName" name="name" type="text" class="form-control"  placeholder="Divisionens namn" required>
+							</div>
+
+							<div class ="form-group">
+								<label for="matchDuration">Matchlängd</label>
+								<input id="matchDuration" name="matchDuration" type="text" class="form-control" placeholder="Matchlängd">
+							</div>
+						</div>
+
 
 						<button type="submit" class="btn btn-default">Skicka</button>
 					</form>
