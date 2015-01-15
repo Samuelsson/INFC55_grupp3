@@ -27,13 +27,15 @@
 			$redirectURL = $controller->getURL("view/cups.php");
 			redirect_to($redirectURL);
 		}
-
 	?>
 
 
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
+
+			<h1>Matchresultat</h1>
+				
 				<?php echo $c . $cup->cupId . '">' . $cup->name . '</a> ' . $d . $division->divisionId . '">' . $division->name . '</a>'; ?>
 
 				<div id="match">
