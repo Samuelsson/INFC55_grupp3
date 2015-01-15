@@ -113,11 +113,33 @@ class Controller
 	}
 
 	public function getLatestCupForUser($uid) {
-		return $this->cupDal->getLatestCupForUser($uid);
+		$cup = $this->cupDal->getLatestCupForUser($uid);
+		$cup->cupMaster = $this->getUser($uid);
+		$cup->divisionList = $this->getDivisionsForCup($cup->cupId);
+		foreach($cup->divisionList as $d){
+			echo $d->name;
+		}
+
+		return $cup;
 	}
 
 	public function getLatestCup() {
 		return $this->cupDal->getLatestCup();
+	}
+
+	public function createCupWithDivisions($cupArr, $divisionArr) {
+		$userId = $cupArr['userId'];
+		$this->create('Cups', $cupArr);
+		$cup = $this->getLatestCupForUser($userId);
+
+		
+
+		$keys = array('name', 'matchDuration', 'cupId');
+		foreach ($divisionArr as $old) {
+			$old[] = $cup->cupId;
+			$d = array_combine($keys, $old);
+			$this->create('Divisions', $d);
+		}
 	}
 
 	/* 
@@ -128,7 +150,7 @@ class Controller
 	public function getCupEager($cupId) { 
 		$cup = $this->cupDal->getCup($cupId);
 
-		$cup->divisionList = $this->divisionDal->getDivisionsForCup($cup->cupId);
+		$cup->divisionList = $this->getDivisionsForCup($cup->cupId);
 
 		/*
 		foreach($cup->divisionList as $division) {	
@@ -191,7 +213,7 @@ class Controller
 
 		$division->cup = $this->cupDal->getCup($division->cupId);
 	
-		$division->teamList = $this->teamDal->getTeamsForDivision($division->divisionId);
+		$division->teamList = $this->getTeamsForDivision($division->divisionId);
 		
 		$division->matchList = $this->matchDal->getMatchesForDivision($division->divisionId);
 		foreach($division->matchList as $match) {
@@ -202,6 +224,10 @@ class Controller
 		$division = $this->bll->calculateGroup($division);
 		$division->teamList = $this->sortResultByPoints($division->teamList);
 		return $division;
+	}
+
+	public function getDivisionsForCup($cid) {
+		return $this->divisionDal->getDivisionsForCup($cid);
 	}
 
 	public function getDivision($did) {

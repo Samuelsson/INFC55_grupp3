@@ -27,6 +27,11 @@
 			$query->setFetchMode(\PDO::FETCH_CLASS, 'User');
 			return $query->fetchAll();
 		}
+		function getUserSecret($userId) {
+			$query = $this->dbh->query("SELECT userId, email FROM Users WHERE userId = '$userId'");
+			$query->setFetchMode(\PDO::FETCH_CLASS, 'User');
+			return $query->fetch();
+		}
 	}
 
 ?>

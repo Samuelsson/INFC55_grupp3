@@ -26,71 +26,74 @@
 
 			<div class="col-md-12">
 				<h2>Skapa cup</h2>
-
+				<button id="addDivision" class="btn btn-default">Lägg till division</button>
+				<button id="removeDivision" class="btn btn-default">Ta bort division</button>
 				<!-- Create cup -->
 
 				<div class="cup-form" id="cup-form">
 					<form role="form" action="manage_cup.php" method="POST">
-						
-						<div class ="form-group">
-							<label for="cupName">* Cupnamn</label>
-							<input id="cupName" name="name" type="text" class="form-control"  placeholder="Cupnamn" required>
-						</div>
-
-						<div class ="form-group">
-							<label for="cupYear">* Cup-år</label>
-							<input id="cupYear" name="year" type="text" class="form-control"  placeholder="Cup-år" required>
-						</div>
-
-						<div class ="form-group">
-							<label for="cupDescription">Cupbeskrivning</label>
-							<input id="cupDescription" name="description" type="text" class="form-control" placeholder="Cupbeskrivning">
-						</div>
-					
-						<div class="form-group">
-							<label for="user">* Spelledare </label>
-						
-						<?php
-							if(is_array($users) ) {
-						?>
-
-								<select id="cupMaster" name="userId">
-								<?php
-									foreach($users as $u) {
-								?>
-										<option value= "<?php echo $u->userId; ?>" > <?php echo $u->email ?></option>
-								<?php
-									}
-								?>
-							</select>
-						<?php
-							} else {
-						?>
-
-							<input id="userEmail" name="email" type="text" class="form-control" value="<?php echo $users->email ?>" readonly>
-							<input id="userId" name="userId" type="hidden" class ="form-control" value="<?php echo $users->userId ?>">
-						<?php
-							}
-						?>
-					
-						</div>
-					
-
-						<hr>
-						<div class="division">
+						<div id ="cupSection" class="col-md-12">
 							<div class ="form-group">
-								<label for="divisionName">Divisionsnamn</label>
-								<input id="divisionName" name="name" type="text" class="form-control"  placeholder="Divisionens namn" required>
+								<label for="cupName">* Cupnamn</label>
+								<input id="cupName" name="name" type="text" class="form-control"  placeholder="Cupnamn" required>
 							</div>
 
 							<div class ="form-group">
-								<label for="matchDuration">Matchlängd</label>
-								<input id="matchDuration" name="matchDuration" type="text" class="form-control" placeholder="Matchlängd">
+								<label for="cupYear">* Cup-år</label>
+								<input id="cupYear" name="year" type="text" class="form-control"  placeholder="Cup-år" required>
+							</div>
+
+							<div class ="form-group">
+								<label for="cupDescription">Cupbeskrivning</label>
+								<input id="cupDescription" name="description" type="text" class="form-control" placeholder="Cupbeskrivning">
+							</div>
+					
+							<div class="form-group">
+								<label for="user">* Spelledare </label>
+							
+							<?php
+								if(is_array($users) ) {
+							?>
+
+									<select id="cupMaster" name="userId">
+									<?php
+										foreach($users as $u) {
+									?>
+											<option value= "<?php echo $u->userId; ?>" > <?php echo $u->email ?></option>
+									<?php
+										}
+									?>
+								</select>
+							<?php
+								} else {
+							?>
+
+								<input id="userEmail" name="email" type="text" class="form-control" value="<?php echo $users->email ?>" readonly>
+								<input id="userId" name="userId" type="hidden" class ="form-control" value="<?php echo $users->userId ?>">
+							<?php
+								}
+							?>
 							</div>
 						</div>
+					
+						
 
 
 						<button type="submit" class="btn btn-default">Skicka</button>
+
+						<div id="divisionSection">
+							<div class="division" class="col-md-6">
+								<div class ="form-group">
+									<label for="divisionName">Divisionsnamn</label>
+									<input id="divisionName" name="name1" type="text" class="form-control"  placeholder="Divisionens namn" required>
+								</div>
+
+									<div class ="form-group">
+									<label for="matchDuration">Matchlängd</label>
+									<input id="matchDuration" name="matchDuration1" type="int" class="form-control" placeholder="Matchlängd">
+								</div>
+							</div>
+						</div>
 					</form>
 				</div>
 			</div>
@@ -103,44 +106,45 @@
 ?>
 
 <script type="text/javascript">
-	$(function() {
+	$(document).ready(function() {
+		var $divisionCount = 1;
+		$("#addDivision").click(function() 
+			{
+				addDivision();
+			}	
+		);
 
-		// Get everything started by running init function
-		initForm();
-
-		function initForm() {
-		
-
-		//	$('#saveCup').click(function() { saveCup(); });
-
-		}
-		
-
-		function saveCup() {
-			alert('Somethin"');
-			var $cupName = $('#cupName').val();
-			var $cupYear = $('#cupYear').val();
-			var $cupDescription = $('#cupDescription').val();
-			var $userId = $('#cupMaster').val();
-
-			var data = {cupName: $cupName, cupYear: $cupYear, cupDescription: $cupDescription, userId: $userId};
-
-			for(var key in data) {
-				alert("key " + key + " has value " + data[key]);
+		$('#removeDivision').click(function()
+			{
+				removeDivision();
 			}
-		}
+		);
 
-		var postAsync = function(url, data) {
-			$.ajax({
-				type: "POST",
-				contentType: "application/json",
-				url: url,
-				data: JSON.stringify(data),
-				dataType: "JSON",
-				success: function(response) { return response; },
-				error: function() { alert("error"); }
-			})
-		}
+	function addDivision() {
+		$('#divisionSection').append(oneDivision());
+	}
 
+	function removeDivision() {
+		//var lastClass = $('divisionSection').attr('class').split(' ').pop();
+
+	}
+
+	function oneDivision() {
+		$divisionCount++;
+		$s = '<div class="division" class="col-md-6">'; 
+		$s += '<div class ="form-group">';
+		$s +='<label for="divisionName">Divisionsnamn</label>';		
+		$s += '<input id="divisionName" name="divName' + $divisionCount + '" type="text" class="form-control"  placeholder="Divisionens namn" required>';
+				
+		$s += '</div><div class ="form-group">';
+		$s +='<label for="matchDuration">Matchlängd</label>';
+		$s +='<input id="matchDuration" name="matchDuration' + $divisionCount + '" type="int" class="form-control" placeholder="Matchlängd">';
+		$s +='</div></div>';
+		return $s;
+	}
 	});
+
+		
+
+	
 </script> 

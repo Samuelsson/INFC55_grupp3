@@ -3,7 +3,8 @@ html{height:100%}body{height:100%;padding-top:51px}body{font-family:'Source Sans
 
 .cup-form {
 	max-width: 800px;
-	width: 500px;
+	width: 800px;
+	margin: 10px;
 }
 	.cup-form label {
 		display: inline-block;
@@ -40,3 +41,11 @@ html{height:100%}body{height:100%;padding-top:51px}body{font-family:'Source Sans
 	.matches-form .match {
 		margin: 15px 10px 5px 0px;
 	}
+
+	.division {
+		margin-left: 10px;
+		margin-top: 10px;
+		margin-bottom: 40px;
+		display: inline-block;
+	}
+
