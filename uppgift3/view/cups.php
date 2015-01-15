@@ -25,9 +25,7 @@
 						$cupList = $controller->getAllCups();
 
 						foreach($cupList as $cup) {
-							echo '<li><a href="';
-							echo $controller->getURL("view/cup_details.php");
-							echo '?id=' . $cup->cupId . '">' . $cup->name . " " . $cup->year . '</a></li>';
+							echo '<li><a href="' . $controller->getURL("view/cup_details.php") . '?id=' . $cup->cupId . '">' . $cup->name . " " . $cup->year . '</a></li>';
 						}
 
 					?>
