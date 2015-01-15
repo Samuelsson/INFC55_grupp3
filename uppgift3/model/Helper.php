@@ -54,7 +54,7 @@ class Helper {
 	//Sets the minimum access level of a page.
 	function setAccessLevel($lvl) {
 		global $CURRENT_USER;
-		if($CURRENT_USER->accessLevel <= $lvl)
+		if($CURRENT_USER->accessLevel >= $lvl)
 			;
 		else
 			die("Du har inte till&aring;telse att anv&auml;nda denna sida.");
