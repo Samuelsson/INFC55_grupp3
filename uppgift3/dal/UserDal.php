@@ -20,6 +20,13 @@
 			$sqlQuery = "SELECT * FROM Users";
 			return $this->dbh->query($sqlQuery);
 		}
+
+		function getCupMasters() {
+			$sql = "SELECT userId, email FROM Users WHERE accessLevel = '2'";
+			$query = $this->dbh->query($sql);
+			$query->setFetchMode(\PDO::FETCH_CLASS, 'User');
+			return $query->fetchAll();
+		}
 	}
 
 ?>

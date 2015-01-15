@@ -99,6 +99,10 @@ class Controller
 		return $this->userDal->getAllUsers();
 	}
 
+	public function getCupMasters() {
+		return $this->userDal->getCupMasters();
+	}
+
 	/*===================Cup======================*/
 	public function getAllCups() {
 		return $this->cupDal->getAllCups();
