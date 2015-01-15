@@ -60,6 +60,33 @@ class Helper {
 			die("Du har inte till&aring;telse att anv&auml;nda denna sida.");
 	}
 
+
+	/* Returns true or false depending on if the user level is present in $levels
+	 * Should be used in an if statement
+	 * @param $levels A stirng in the format "1,2,3,4"
+	 */
+	function setSpecificAccess($levels) {
+		$levelArr = explode(",", $levels); //Creates an array of the levels.
+		global $CURRENT_USER;
+		return in_array($CURRENT_USER->accessLevel, $levelArr);
+	}
+
+	/*
+	* Returns a properly formatted link if the user is of a specific level.
+	* @param $levels A stirng in the format "1,2,3,4"
+	* @param $url An url from the root folder
+	* @param $text The text that is displayed in the menu
+	*/
+	function accessLink($levels, $url, $text) {
+		$levelArr = explode(",", $levels);
+		global $CURRENT_USER;
+		if(in_array($CURRENT_USER->accessLevel, $levelArr)) {
+			return "<a href=\"" . $this->controller->getURL($url) ."\">$text</a>";
+		}
+	}
+
+
+
 }
 
 
