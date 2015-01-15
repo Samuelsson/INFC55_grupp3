@@ -14,8 +14,6 @@
 	} elseif ( $CURRENT_USER->accessLevel == 7 ) {
 
 		$users = $CURRENT_USER;
-		echo $controller->CURRENT_USER->email;
-		echo $controll->CURRENT_USER->userId;
 	}
 	$goToURL = $controller->getURL('view/manage_cup.php');
 ?>
@@ -49,7 +47,7 @@
 							</div>
 					
 							<div class="form-group">
-								<label for="user">* Spelledare </label>
+								<label for="cupMaster">* Spelledare </label>
 							
 							<?php
 								if(is_array($users) ) {

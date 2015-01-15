@@ -12,6 +12,13 @@
 	<div class="container-fluid">
 		<div class="row">
 
+			<div class="col-sm-8 col-md-9 cups main-content">
+			</div>
+
+			<?php
+				$controller->getSidebarRight(); // Gets the sidebar and loads it after the main content
+			?>
+
 		</div>
 	</div>
 

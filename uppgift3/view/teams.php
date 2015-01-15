@@ -12,17 +12,17 @@
 	<div class="container-fluid">
 		<div class="row">
 
-			<div class="col-md-12">
+			<div class="col-sm-8 col-md-9 cups main-content">
 
 				<h1>Alla lag</h1>
 
 				<?php 
 				$url = $controller->getURL("view/team_details.php?id=");
 
-					foreach($controller->getAllTeams() as $row) { ?>
+					foreach($controller->getAllTeams() as $t) { ?>
 						<div class="team-image">
-							<a href="<?php echo $url . $row['teamId'] ?>"><img src="../img/teams/<?php echo $row['teamId'] ?>.jpg" alt="Bild p&aring; laget"></a>
-							<h4><a href="<?php echo $url . $row['teamId'] ?>"><?php echo $row['name']; ?></a></h4>
+							<a href="<?php echo $url . $t->teamId ?>"><img src="../img/teams/<?php echo $t->teamId ?>.jpg" alt="Bild p&aring; laget"></a>
+							<h4><a href="<?php echo $url . $t->teamId ?>"><?php echo $t->name; ?></a></h4>
 						</div>
 
 						<?php
@@ -31,6 +31,10 @@
 				?>
 	
 			</div>
+
+			<?php
+				$controller->getSidebarRight(); // Gets the sidebar and loads it after the main content
+			?>
 
 		</div>
 	</div>

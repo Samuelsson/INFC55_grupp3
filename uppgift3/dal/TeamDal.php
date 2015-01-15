@@ -10,8 +10,11 @@ class TeamDal {
 
 	function getAllTeams() {
 		$sqlQuery = "SELECT * FROM Teams";
-		return $this->dbh->query($sqlQuery);
+		$query = $this->dbh->query($sqlQuery);
+		$query->setFetchMode(\PDO::FETCH_CLASS, 'Team');
+		return $query->fetchAll();
 	}
+
 
 	function getTeamsForCup($cupId) {
 		$query = $this->dbh->query(
@@ -35,6 +38,23 @@ class TeamDal {
 		$query = $this->dbh->query("SELECT * FROM Teams WHERE teamId = '$teamId'");
 		$query->setFetchMode(\PDO::FETCH_CLASS, 'Team');
 		return $query->fetch();		
+	}
+
+	function getAllTeamsNotInCup($cid) {
+		$sql = "SELECT * 
+				FROM Teams
+				WHERE teamId NOT IN (
+					SELECT teamId 
+				    FROM DivisionTeam
+					WHERE divisionId IN (
+						SELECT divisionId 
+						FROM Divisions
+						WHERE cupId = $cid
+				        )
+				   	);";
+		$query = $this->dbh->query($sql);
+		$query->setFetchMode(\PDO::FETCH_CLASS, 'Team');
+		return $query->fetchAll();
 	}
 }
 

@@ -14,10 +14,9 @@
 	<div class="container-fluid">
 		<div class="row">
 
+			<div class="col-sm-8 col-md-9 cups main-content">
 
-		<div class="col-md-12">
-
-			<h1>Cuper</h1>
+				<h1>Cuper</h1>
 
 				<ul class="cups-list">
 					<?php
@@ -31,7 +30,11 @@
 					?>
 				</ul>
 
-		</div>
+			</div>
+
+			<?php
+				$controller->getSidebarRight(); // Gets the sidebar and loads it after the main content
+			?>
 
 		</div>
 	</div>
