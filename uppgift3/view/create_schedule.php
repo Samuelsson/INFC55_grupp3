@@ -14,7 +14,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="cup-form">
+			<div class="matches-form">
 					<?php
 
 						foreach($matches as $m) {

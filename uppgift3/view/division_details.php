@@ -1,6 +1,8 @@
 <?php
 
 	require_once('../controller/controller.php'); // The file with all functions is required (can't be loaded more than once)
+	require_once('inc/functions.php'); // The file with all functions is required (can't be loaded more than once)
+
 	$controller = new Controller; // Creates a controller object
 	$controller -> getHeader(); // Loads the header before the main content
 
@@ -10,7 +12,7 @@
 	====================================================================== -->
 
 	<?php
-		if(isset($_GET['id'])) {
+		if( isset($_GET['id']) && !empty($_GET['id']) ) {
 			$did = $_GET['id'];
 			$division = $controller->getDivisionEager($did);
 
@@ -22,6 +24,9 @@
 			$tlink = '<a href="' . $controller->getURL("view/team_details.php") . '?id=';	
 
 			$playoffList = array();
+		} elseif( !isset($_GET['id']) || empty($_GET['id']) ) {
+			$redirectURL = $controller->getURL("view/cups.php");
+			redirect_to($redirectURL);
 		}
 	?>
 

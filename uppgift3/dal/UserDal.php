@@ -22,7 +22,7 @@
 		}
 
 		function getCupMasters() {
-			$sql = "SELECT userId, email FROM Users WHERE accessLevel = '2'";
+			$sql = "SELECT userId, email FROM Users WHERE accessLevel <= '2'";
 			$query = $this->dbh->query($sql);
 			$query->setFetchMode(\PDO::FETCH_CLASS, 'User');
 			return $query->fetchAll();

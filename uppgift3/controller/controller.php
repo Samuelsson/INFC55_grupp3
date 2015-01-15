@@ -112,6 +112,14 @@ class Controller
 		return $this->cupDal->getCup($cid);
 	}
 
+	public function getLatestCupForUser($uid) {
+		return $this->cupDal->getLatestCupForUser($uid);
+	}
+
+	public function getLatestCup() {
+		return $this->cupDal->getLatestCup();
+	}
+
 	/* 
 	Maybe change this functions. It is called from the cup_details-page,
 	but at the moment it is only the divisionList which is used on that page.
@@ -225,7 +233,6 @@ class Controller
 
 		return $match;
 	}
-
 }
 
 

@@ -3,24 +3,40 @@ html{height:100%}body{height:100%;padding-top:51px}body{font-family:'Source Sans
 
 .cup-form {
 	max-width: 800px;
+	width: 500px;
 }
 	.cup-form label {
+		display: inline-block;
+		width: 120px;
+		margin-right: 10px;
+		margin-left: 10px;
+	}
+	
+	.cup-form input {
+		max-width: 250px;
+		display: inline-block;
+	}
+
+	.cup-form .match {
+		margin: 15px 10px 5px 0px;
+	}
+
+.matches-form {
+	max-width: 800px;
+}
+	.matches-form label {
 		display: inline-block;
 		/*width: 50px;*/
 		/*text-align: left;*/
 		margin-right: 10px;
 		margin-left: 10px;
 	}
-	/*
-		.cup-form .form-group label:nth-child(even){
-			margin-left: 10px;
-		}
-	*/
-	.cup-form input {
+	
+	.matches-form input {
 		max-width: 190px;
 		display: inline-block;
 	}
 
-	.cup-form .match {
+	.matches-form .match {
 		margin: 15px 10px 5px 0px;
 	}
