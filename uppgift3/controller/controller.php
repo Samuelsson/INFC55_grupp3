@@ -149,7 +149,7 @@ class Controller
 	*/
 	public function getCupEager($cupId) { 
 		$cup = $this->cupDal->getCup($cupId);
-
+		$cup->cupMaster = $this->getUser($cup->userId);
 		$cup->divisionList = $this->getDivisionsForCup($cup->cupId);
 
 		/*
@@ -199,6 +199,10 @@ class Controller
 
 	public function getTeamsForDivision($did) {
 		return $this->teamDal->getTeamsForDivision($did);
+	}
+
+	function getAllTeamsNotInCup($cid) {
+		return $this->teamDal->getAllTeamsNotInCup($cid);
 	}
 
 	//=================PLAYERS=======================

@@ -49,3 +49,17 @@ html{height:100%}body{height:100%;padding-top:51px}body{font-family:'Source Sans
 		display: inline-block;
 	}
 
+	.teamList .team {
+		margin: 5px;
+	}
+	.addTeamToDivision-form {
+
+	}
+	.addTeamToDivision-form label {
+		display: inline-block;
+		margin-right: 10px;
+		margin-left: 10px;
+	}
+	.addTeamToDivision-form .form-group {
+		display:inline-block;
+	}
