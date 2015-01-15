@@ -8,14 +8,19 @@
 	$controller = new Controller; // Creates a controller object
 	$controller->checkLoggedInCookie();
 	$controller -> getHeader(); // Loads the header before the main content
-
+	
+	if(!isset($_GET['id']) || empty($_GET['id'])) {
+		$redirectURL = $controller->getURL("view/cups.php");
+		redirect_to($redirectURL);
+	} else {
+		$cup = $controller->getCupEager($_GET['id']);
+	}
 ?>
 
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm-8 col-md-9 main-content">
 			<?php
-				$cup = $controller->getCupEager($_GET['id']);
 				echo "<h1>" . $cup->name . " " . $cup->year . "</h1>";
 				echo "<p>" . $cup->description . "</p>";
 			?>

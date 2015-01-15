@@ -1,20 +1,25 @@
 <?php
 
 	require_once('../controller/controller.php'); // The file with all functions is required (can't be loaded more than once)
+	require_once('inc/functions.php'); // The file with all functions is required (can't be loaded more than once)
+
 	$controller = new Controller; // Creates a controller object
 	$controller -> getHeader(); // Loads the header before the main content
-
 ?>
 
 	<!-- The Main Content
 	====================================================================== -->
 
 	<?php
-		if(isset($_GET['id'])) {
+		if( isset($_GET['id']) && !empty($_GET['id']) ) {
 			$tid = $_GET['id'];
 			$team = $controller->getTeam($tid);
 			$players = $controller->getPlayersByTeam($tid);
-		}
+		} elseif( !isset($_GET['id']) || empty($_GET['id']) ) {
+		$redirectURL = $controller->getURL("view/teams.php");
+		redirect_to($redirectURL);
+	}
+
 	?>
 
 	<div class="container-fluid">
