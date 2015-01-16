@@ -1,13 +1,13 @@
+<?php 
+	$con = new Controller;
+	$con->checkLoggedInCookie(); // Check if the user is logged in
+?>
 <!DOCTYPE html>
 
 <!--
 	INFC55 Group 3
 	2014
 -->
-
-<?php 
-	$con = new Controller;
-?>
 
 <html lang="en-us">
 <head>
@@ -94,7 +94,7 @@
 				else {
 					echo "<li><a href=\"". $con->getURL("view/admin.php"). "\">Administrera</a></li>";
 					echo "<li><a href='";
-					echo $con->getURL("view/login.php?logout"); 
+					echo $con->getURL("view/logout.php"); 
 					echo "'>Logga ut</a></li>";
 				}
 
