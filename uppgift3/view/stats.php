@@ -23,6 +23,7 @@
 
 		echo $controller->accessLink("2,7", "test/test.php", "Test");
 
+		$controller->delete("Users", "userId", "10");
 		?>
 		</div>
 	</div>

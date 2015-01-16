@@ -89,6 +89,10 @@ class Controller
 		$this->dal->create($tableName, $arr);
 	}
 
+	public function delete($tableName, $idName, $id) {
+		$this->dal->delete($tableName, $idName, $id);
+	}
+
 	/*==================User======================*/
 	public function getUser($userId) {
 		return $this->userDal->getUser($userId);
