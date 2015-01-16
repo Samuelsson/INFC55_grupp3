@@ -6,7 +6,6 @@
 	require_once('../model/Cup.php');
 
 	$controller = new Controller; // Creates a controller object
-	$controller->checkLoggedInCookie();
 	$controller -> getHeader(); // Loads the header before the main content
 	
 	if(!isset($_GET['id']) || empty($_GET['id'])) {
