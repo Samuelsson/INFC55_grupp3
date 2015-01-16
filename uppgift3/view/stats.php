@@ -13,6 +13,17 @@
 
 	<div class="container-fluid">
 		<div class="row">
+
+		<?php 
+		if($controller->setSpecificAccess("7,4,3,")) {
+			echo "Sant!";
+		}
+		else 
+			echo "Falskt!";
+
+		echo $controller->accessLink("2,7", "test/test.php", "Test");
+
+		?>
 		</div>
 	</div>
 

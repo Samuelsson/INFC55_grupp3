@@ -132,7 +132,6 @@ class Controller
 		$this->create('Cups', $cupArr);
 		$cup = $this->getLatestCupForUser($userId);
 
-		
 
 		$keys = array('name', 'matchDuration', 'cupId');
 		foreach ($divisionArr as $old) {
@@ -147,13 +146,13 @@ class Controller
 	but at the moment it is only the divisionList which is used on that page.
 	The foreach loop is useless at the monent.
 	*/
-	public function getCupEager($cupId) { 
+	public function getCupEager($cupId) {
 		$cup = $this->cupDal->getCup($cupId);
 		$cup->cupMaster = $this->getUser($cup->userId);
 		$cup->divisionList = $this->getDivisionsForCup($cup->cupId);
 
 		/*
-		foreach($cup->divisionList as $division) {	
+		foreach($cup->divisionList as $division) {
 			$division->teamList = $this->teamDal->getTeamsForDivision($division->divisionId);	
 			$division->matchList = $this->matchDal->getMatchesForDivision($division->divisionId);
 		}
@@ -177,6 +176,14 @@ class Controller
 
 	public function setAccessLevel($lvl) {
 		$this->helper->setAccessLevel($lvl);
+	}
+
+	public function setSpecificAccess($levels) {
+		return $this->helper->setSpecificAccess($levels);
+	}
+
+	public function accessLink($levels, $url, $text) {
+		return $this->helper->accessLink($levels, $url, $text);
 	}
 
 	/**
