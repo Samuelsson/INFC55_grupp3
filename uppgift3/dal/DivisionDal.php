@@ -32,12 +32,19 @@
 		}
 
 		function isStageDone($divisionId, $stage) {
-			$sql = "SELECT $stage FROM Divisions WHERE divisionId = $divisionId";
+			$sql = "SELECT " . $stage .  " FROM Divisions WHERE divisionId = $divisionId";
 			$query = $this->dbh->query($sql);
 
 			$result = $query->fetch();
 
-			$bool = $result['$stage'];
+			if($stage == 'groupstageDone'){
+				$bool = $result['groupstageDone'];
+			} elseif($stage == 'semifinalsDone'){
+				$bool = $result['semifinalsDone'];
+			} elseif($stage == 'finalsDone'){
+				$bool = $result['finalsDone'];
+			}
+			
 			return $bool;
 		}
 	}	

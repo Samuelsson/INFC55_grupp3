@@ -23,26 +23,31 @@
 		$groupstageDone = $controller->isStageDone($divisionId, 'groupstageDone'); //groupstage
 		$semifinalsDone = $controller->isStageDone($divisionId, 'semifinalsDone'); //semifinals
 		$finalsDone = $controller->isStageDone($divisionId, 'finalsDone'); // finals
+
+		echo $scheduleGenerated . '</br>';
+		echo $groupstageDone . '</br>';
+		echo $semifinalsDone . '</br>';
+		echo $finalsDone . '</br>';
 		
 		if ($scheduleGenerated == 0) { // 0 equals false. Therefore we generate it and show it.
-			echo "generating schedule";
+			echo "generating schedule" . '</br>';
 			$matches = $controller->generateScheduleForDivision($divisionId);
 		} elseif ($scheduleGenerated == 1){ //1 equals true. If it already has been created we instead check if the groupstage and semifinals are done
-			echo "schedule done";
+			echo "schedule done" . '</br>';
 			if($groupstageDone == 1 && $semifinalsDone == 0) { //if the groupstage is completed, but the semifinals isn't, we get the semifinals.
-				echo "groupstage done";
-				$count = count($controller->getTeamsForDivision);
+				echo "groupstage done" . '</br>';
+				$count = count($controller->getTeamsForDivision($divisionId));
 				echo $count;
 				if($count >= 4) {
 					$matches = $controller->calculateSemifinals($divisionId);
 				} else {
-					echo "Inte tillräckligt många lag för slutspel.";
+					echo "Inte tillräckligt många lag för slutspel." . '</br>';
 				}
-			} else if ($semifinals == 1 && $finalsDone == 0 ) { //if the semifinals are done, but not the finals, we get the final game and the third-medal-game
-				echo "semifinals done";
+			} else if ($semifinalsDone == 1 && $finalsDone == 0 ) { //if the semifinals are done, but not the finals, we get the final game and the third-medal-game
+				echo "semifinals done" . '</br>';
 				$matches = $controller->calculateFinals($divisionId);
-			} else if ($finals == 1 ){
-				echo "finals done";
+			} else if ($finalsDone == 1 ){
+				echo "finals done" . '</br>';
 				/*
 				$redirectURL = $controller->getURL("index.php");
 				redirect_to($redirectURL);
@@ -71,22 +76,24 @@
 						<form role="form" action="create_Schedule.php" method="POST">	
 							<?php	
 							foreach($matches as $m) {
+								//$i = 1;
 								?>
 								<div class="match">
 									<label for="match"><?php echo $m->type . ': ' . $m->homeTeam->name . ' - ' . $m->awayTeam->name; ?> </label>
 
 									<div class="form-group" id="match">
 										<label for="date">Datum</label>
-										 <input type="datetime-local" class="form-control" required>
+										 <input name="date" type="datetime-local" class="form-control" required>
 							
 										<label for="field">Plan</label>
-										<input type="text" class="form-control" required>
+										<input name="field" type="text" class="form-control" required>
 									</div>
 								</div>
 							<?php
+							//$i++;
 							}
 							?>
-						<input id="divisionId" name="divisionId" type="hidden" class="form-control" value="<?php echo $cup->cupId ?>">
+						<input id="divisionId" name="divisionId" type="hidden" class="form-control" value="<?php echo $divisionId ?>">
 						<button type="submit" class="btn btn-default">Lägg till</button>
 					</form>
 					<?php		

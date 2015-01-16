@@ -24,7 +24,7 @@
 		function getSemiFinals($divisionId) {
 			$query = $this->dbh->query("SELECT * FROM Matches WHERE divisionId = '$divisionId' AND type='Semifinal';");
 			$query->setFetchMode(\PDO::FETCH_CLASS, 'Match');
-			return $query->fetch();	
+			return $query->fetchAll();	
 		}
 
 		function save($obj)	{

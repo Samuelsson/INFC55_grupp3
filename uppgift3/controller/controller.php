@@ -120,10 +120,11 @@ class Controller
 		$cup = $this->cupDal->getLatestCupForUser($uid);
 		$cup->cupMaster = $this->getUser($uid);
 		$cup->divisionList = $this->getDivisionsForCup($cup->cupId);
+		/*
 		foreach($cup->divisionList as $d){
 			echo $d->name;
 		}
-
+		*/
 		return $cup;
 	}
 
