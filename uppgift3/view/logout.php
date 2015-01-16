@@ -6,5 +6,5 @@
 	$controller = new Controller; // Creates a controller object // The file with all functions is required (can't be loaded more than once)
 	$controller->logout();
 	
-	header("Location: ../index.php");
+	header("Location: logged_out.php");
 ?>
