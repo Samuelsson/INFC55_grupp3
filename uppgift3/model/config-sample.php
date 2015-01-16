@@ -39,6 +39,9 @@
 	Misc stuff
    ============================================================================================== */
 	
+	// Set an MD5 hash
+	define('SALT', '');
+
 	// Path from root to index.php. I.E. '/INFC55_grupp3/uppgift3/'
 	$path = '/path/to/uppgift3/';
 
