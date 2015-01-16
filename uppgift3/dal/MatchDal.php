@@ -40,7 +40,7 @@
 			 $query = $this->dbh->prepare($sqlQuery);
 			 $query->execute();
 		}
-
+	}
 	
 
 
