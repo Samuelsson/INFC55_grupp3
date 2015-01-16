@@ -28,11 +28,11 @@ class Controller
 	public $viewFunc;
 	public $dal;
 	public $dbh;
+	public $matchDal;
 	private $userDal;
 	private $cupDal;
 	private $divisionDal;
 	private $teamDal;
-	private $matchDal;
 	private $helper;
 	private $bll;
 	private $playerDal;

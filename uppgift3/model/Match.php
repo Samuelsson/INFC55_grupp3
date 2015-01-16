@@ -1,8 +1,8 @@
 <?php
 
-class Match{
+class Match {
 	function save($controller) {
-		$controller->save($this);
+		$controller->matchDal->save($this);
 	}
 }
 
