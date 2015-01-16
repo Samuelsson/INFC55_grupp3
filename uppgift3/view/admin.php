@@ -4,6 +4,13 @@
 	$controller = new Controller; // Creates a controller object
 	$controller -> getHeader(); // Loads the header before the main content
 
+	if(isset($_POST['name'])) {
+		$password = md5($_POST['password'] . SALT);
+		echo $password;
+		$values = $arrayName = array('email' => $_POST['email'], 'password' => $password, 'accessLevel' => $_POST['accessLevel']);
+		$controller->create("Users", $values);
+		echo "Done";
+	}
 ?>
 
 	<!-- The Main Content
@@ -21,21 +28,33 @@
 				<!-- Create Team Leader -->
 
 				<div class="admin-form">
-					<h3>Skapa spelledare</h3>
+					<h3>Skapa användare</h3>
 
-					<form>
 						<div class="form-group">
-							<label for="teamLeaderName">Namn</label>
-							<input type="text" class="form-control" id="teamLeaderName" placeholder="Spelledarens namn" required>
+							<label for="email">E-mail</label>
+							<input type="text" class="form-control" id="email" name='email' placeholder="Användarens epost/inloggning" required>
 						</div>
+
 
 						<div class="form-group">
 							<label for="teamLeaderPassword">L&ouml;senord</label>
-							<input type="password" class="form-control" id="teamLeaderPassword" placeholder="L&ouml;senord" required>
+							<input type="password" class="form-control" id="password" name="password" placeholder="L&ouml;senord" required>
 						</div>
 
 						<div class="form-group">
-							<input type="password" class="form-control" id="teamLeaderPasswordRepeat" placeholder="Upprepa l&ouml;senord" required>
+							<input type="password" class="form-control" id="passwordRepeat" name="passwordRepeat" placeholder="Upprepa l&ouml;senord" required>
+						</div>
+
+						<div class="form-group">
+							<label for="accessLevel">Klass</label>
+							<select class="form-control" id="accessLevel" name="accessLevel">
+							<!-- Should be gotten from the DB -->
+							<option value="9">Admin</option>
+							<option value="7">Cupmaster</option>
+							<option value="5">Fieldhost</option>
+							<option value="3">Teamowner</option>
+							<option value="1">Player</option>
+							</select>
 						</div>
 
 						<button type="submit" class="btn btn-default">Skapa</button>

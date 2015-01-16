@@ -84,8 +84,7 @@
 				<li><a href="<?php echo $con->getURL("view/cups.php");?>">Cupper</a></li>
 				<li><a href="<?php echo $con->getURL("view/teams.php");?>">Lag</a></li>
 				<li><a href="<?php echo $con->getURL("view/schedule.php");?>">Spelschema</a></li>
-				<li><a href="<?php echo $con->getURL("view/stats.php");?>">Statistik</a></li>
-				<?php 
+				<?php
 				global $LOGGED_IN;
 				if(!$LOGGED_IN) { //Checks if Login or logged out should be displayed.
 					echo "<li><a href='";
@@ -93,6 +92,7 @@
 					echo "'>Logga in</a></li>";
 				}
 				else {
+					echo "<li><a href=\"". $con->getURL("view/admin.php"). "\">Administrera</a></li>";
 					echo "<li><a href='";
 					echo $con->getURL("view/login.php?logout"); 
 					echo "'>Logga ut</a></li>";
