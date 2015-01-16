@@ -48,6 +48,8 @@
 	}
 
 	$goToURL = $controller->getURL("view/manage_cup.php") . '?id=' . $cup->cupId;
+	$generateScheduleURL = $controller->getURL("view/create_schedule.php") . '?id=';
+	$goToScheduleURL = $controller->getURL("view/division_details.php") . '?id=';
 
 	$availableTeams = $controller->getAllTeamsNotInCup($cup->cupId);
 
@@ -58,8 +60,8 @@
 		<div class="col-md-12 main-content">
 			<div class="col-md-3">
 				<h2>Hantera cup</h2>
-				<h3> <?php echo $cup->name . ' ' . $cup->year ?> </h3>
-				<?php echo 'Spelledare: ' . $cupMaster->email ; ?>
+				<h3> <?php echo $cup->name . ' ' . $cup->year; ?> </h3>
+				<?php echo 'Spelledare: ' . $cupMaster->email; ?>
 			</div>
 			<div class="col-md-6">
 				<div class="addTeamToDivision-form" id="addTeamToDivision-form">
@@ -70,7 +72,7 @@
 								<?php
 									foreach($divisions as $d) {
 								?>
-										<option value= "<?php echo $d->divisionId; ?>" > <?php echo $d->name ?></option>
+										<option value= "<?php echo $d->divisionId; ?>" > <?php echo $d->name; ?></option>
 								<?php
 										}
 								?>
@@ -103,8 +105,7 @@
 						<h3><?php echo $d->name; ?></h3></a>
 						<?php
 						$d->teamList = $controller->getTeamsForDivision($d->divisionId);
-						
-						if(isset($d->teamList) && !empty($d->teamList));
+						if(isset($d->teamList) && !empty($d->teamList)) {
 						foreach($d->teamList as $t) {
 						?>
 							<div class="teamList">
@@ -114,8 +115,18 @@
 							</div>
 						<?php
 						}
+						
+						if($controller->isScheduleGenerated($d->divisionId) == 0 && count($d->teamList) > 1) {
 						?>
-
+							<a href="<?php echo $generateScheduleURL . $d->divisionId; ?>">Generera spelschema</a>
+						<?php
+						} elseif(count($d->teamList) > 1) {
+						?>
+							<a href="<?php echo $goToScheduleURL . $d->divisionId; ?>">Gå till spelschema</a>
+					<?php
+						}
+					}
+					?>
 					</div>
 				<?php
 				}

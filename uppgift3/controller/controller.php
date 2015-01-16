@@ -230,6 +230,33 @@ class Controller
 		return $division;
 	}
 
+	public function calculateSemifinals($divisionId){
+		$division = $this->divisionDal->getDivision($divisionId);
+		$division->teamList = $this->matchDal->getMatchesForDivision($division->divisionId);
+		foreach($division->matchList as $match) {
+			$match->homeTeam = $this->getTeam($match->homeTeamId);
+			$match->awayTeam = $this->getTeam($match->awayTeamId);
+		}
+		$division = $this->bll->calculateGroup($division);
+		$division->teamList = $this->sortResultByPoints($division->teamList);
+
+		$semifinals = $this->bll->calculateSemifinals($division->teamList);
+
+		return $semifinals;
+	}
+	public function calculateFinals($divisionId) {
+		$semifinals = $this->matchDal->getSemifinals($divisionId);
+		echo count($semifinals);
+		foreach($semifinals as $match) {
+			$match->homeTeam = $this->getTeam($match->homeTeamId);
+			$match->awayTeam = $this->getTeam($match->awayTeamId);
+		}
+
+		$finals = $this->bll->calculateFinals($semifinals[0], $semifinals[1]);
+
+		return $finals;
+	}
+
 	public function getDivisionsForCup($cid) {
 		return $this->divisionDal->getDivisionsForCup($cid);
 	}
@@ -263,6 +290,16 @@ class Controller
 
 		return $match;
 	}
+
+	//===========DIVISION // SCHEDULE============
+
+	public function isScheduleGenerated($divisionId) {
+		return $this->divisionDal->isScheduleGenerated($divisionId);
+	}
+	public function isStageDone($divisionId, $stage) {
+		return $this->divisionDal->isStageDone($divisionId, $stage);
+	}
+
 }
 
 

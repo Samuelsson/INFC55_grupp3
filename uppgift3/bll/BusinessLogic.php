@@ -193,6 +193,7 @@ class BusinessLogic {
 	public function createMatch($firstTeam, $secondTeam, $roundNr) {
 		$match = new Match;
 		$match->round = $roundNr;
+		$match->type = 'Group';
 
 		$everydayImShuffling = array($firstTeam, $secondTeam);
 		shuffle($everydayImShuffling);
@@ -203,16 +204,10 @@ class BusinessLogic {
 		return $match;
 	}
 
+	/* Sorting function using bubble-algorithm */
 	public function sortResultByPoints($teams) {
 
 		$size = count($teams);
-
-		//echo 'Before sort' . '</br>';
-		/*
-		for($x = 0; $x < $size; $x++){
-			echo $teams[$x]->name . ' ' .$teams[$x]->points . '</br>';
-		}
-		*/
 
 		for($i = 0 ; $i < $size ; $i++) {
 			for($j = 0 ; $j < $size; $j++){
@@ -224,14 +219,61 @@ class BusinessLogic {
 			}
 		}
 
-
-	//	echo 'Arfter sort' . '</br>';
-		
 		for($x = 0; $x < $size; $x++){
 			$teams[$x]->position = $x+1;
 		}
 		
 		return $teams;
+	}
+
+	public function calculateSemifinals($matchList){
+		$semifinals = array();
+		$first = $matchList[0];
+		$second = $matchList[1];
+		$third = $matchList[2];
+		$forth = $matchList[3];
+
+		$match1->homeTeam = $first;
+		$match1->awayTeam = $forth;
+		$match1->type = 'Semifinal';
+
+
+		$match2->homeTeam = $second;
+		$match2->awayTeam = $third;
+		$match2->type = 'Semifinal';
+
+		$semifinals[] = $match1;
+		$semifinals[] = $match2;
+
+		return $semifinals;
+	}
+	public function calculateFinals($match1, $match2){
+		if($match1->homeScore > $match1->awayScore) {
+			$finalist1 = $match1->homeTeam;
+			$bronze1 = $match1->awayTeam;
+		} else {
+			$finalist1 = $match1->awayTeam;
+			$bronze1 = $match1->homeTeam;
+		}
+
+		if($match2->homeScore > $match2->awayScore) {
+			$finalist2 = $match2->homeTeam;
+			$bronze2 = $match2->awayTeam;
+		} else {
+			$finalist2 = $match2->awayTeam;
+			$bronze2 = $match2->homeTeam;
+		}
+
+		$final->homeTeam = $finalist1;
+		$final->awayTeam = $finalist2;
+		$final->type = 'Final';
+
+		$bronze->homeTeam = $bronze1;
+		$bronze->awayTeam = $bronze2;
+		$bronze->type = 'ThirdPlace';
+
+		$finals = array("Final" => $final, "Bronze" => $bronze);
+		return $finals;
 	}
 }
 
