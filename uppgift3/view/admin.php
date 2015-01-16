@@ -19,31 +19,42 @@
 
 			<div class="col-md-12 admin-area">
 				<?php if(isset($_POST['email']))
+<<<<<<< HEAD
 						echo "<p>Användaren är sparad</p>";
 				?>
+=======
+					echo "<p>Användaren är sparad</p>";
+				?>
+
+>>>>>>> graphical
 				<h1>Administration</h1>
 
-				<h2>Skapa anv&auml;ndare</h2>
+				<!-- Create User -->
 
-				<!-- Create Team Leader -->
-
-				<div class="panel panel-default">
+				<div class="panel panel-default admin-create-user">
 					<div class="panel-heading">
-						Skapa spelledare
+						Skapa anv&auml;ndare
 					</div>
 
 					<div class="panel-body">
 
+<<<<<<< HEAD
 
 						<div class="admin-form">
 					<h3>Skapa användare</h3>
+=======
+						<div class="admin-form">
+>>>>>>> graphical
 							<form method="POST">
 								<div class="form-group">
 									<label for="email">E-mail</label>
 									<input type="text" class="form-control" id="email" name='email' placeholder="Användarens epost/inloggning" required>
 								</div>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> graphical
 								<div class="form-group">
 									<label for="teamLeaderPassword">L&ouml;senord</label>
 									<input type="password" class="form-control" id="password" name="password" placeholder="L&ouml;senord" required>
@@ -70,10 +81,13 @@
 						</div>
 					</div>
 				</div>
+<<<<<<< HEAD
 
 				<hr>
 
 				
+=======
+>>>>>>> graphical
 
 			</div>
 
