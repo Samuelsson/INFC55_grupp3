@@ -1,5 +1,11 @@
 <?php
 
+	// Checks if id is set
+	if(!isset($_GET['id']) || empty($_GET['id'])) {
+		header("Location: cups.php");
+		exit;
+	}
+
 	require_once('../controller/controller.php'); // The file with all functions is required (can't be loaded more than once)
 	require_once('inc/functions.php'); // The file with all functions is required (can't be loaded more than once)
 
@@ -12,23 +18,17 @@
 	====================================================================== -->
 
 	<?php
-		if( isset($_GET['id']) && !empty($_GET['id']) ) {
-			$did = $_GET['id'];
-			$division = $controller->getDivisionEager($did);
+		$did = $_GET['id'];
+		$division = $controller->getDivisionEager($did);
 
-			$cup = $division->cup;
-			$matchList = $division->matchList;
-			$teamList = $division->teamList;
+		$cup = $division->cup;
+		$matchList = $division->matchList;
+		$teamList = $division->teamList;
 
-			$s ='<a href="' . $controller->getURL("view/match_details.php") . '?id=';
-			$tlink = '<a href="' . $controller->getURL("view/team_details.php") . '?id=';	
+		$s ='<a href="' . $controller->getURL("view/match_details.php") . '?id=';
+		$tlink = '<a href="' . $controller->getURL("view/team_details.php") . '?id=';	
 
-			$playoffList = array();
-		} 
-		elseif( !isset($_GET['id']) || empty($_GET['id']) ) {
-			$redirectURL = $controller->getURL("view/cups.php");
-			redirect_to($redirectURL);
-		}
+		$playoffList = array();
 	?>
 
 	<div class="container-fluid">

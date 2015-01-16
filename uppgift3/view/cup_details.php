@@ -1,5 +1,9 @@
 <?php
-	// Config file is always required
+	// If no id is specified in the url bar -> redirect back to cups.php
+	if(!isset($_GET['id']) || empty($_GET['id'])) {
+		header("Location: cups.php");
+		exit;
+	}
 
 	require_once('../controller/controller.php'); // The file with all functions is required (can't be loaded more than once)
 	require_once('inc/functions.php'); // The file with all functions is required (can't be loaded more than once)
@@ -8,13 +12,7 @@
 	$controller = new Controller; // Creates a controller object
 	$controller -> getHeader(); // Loads the header before the main content
 	
-	if(!isset($_GET['id']) || empty($_GET['id'])) {
-		$redirectURL = $controller->getURL("view/cups.php");
-		redirect_to($redirectURL);
-	}
-	else {
-		$cup = $controller->getCupEager($_GET['id']);
-	}
+	$cup = $controller->getCupEager($_GET['id']);
 ?>
 
 <div class="container-fluid">

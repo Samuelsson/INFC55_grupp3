@@ -1,5 +1,11 @@
 <?php
 
+	// Checks if id is set
+	if(!isset($_GET['id']) || empty($_GET['id'])) {
+		header("Location: cups.php");
+		exit;
+	}
+
 	require_once('../controller/controller.php'); // The file with all functions is required (can't be loaded more than once)
 	$controller = new Controller; // Creates a controller object
 	$controller->checkLoggedInCookie();
@@ -33,10 +39,7 @@
 			$t ='<a href="' . $controller->getURL("view/team_details.php") . '?id=';
 		}
 
-
 	?>
-		
-	
 
 	<div class="container-fluid">
 		<div class="row">
