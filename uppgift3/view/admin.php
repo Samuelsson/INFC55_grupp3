@@ -3,6 +3,7 @@
 	require_once('../controller/controller.php'); // The file with all functions is required (can't be loaded more than once)
 	$controller = new Controller; // Creates a controller object
 	$controller -> getHeader(); // Loads the header before the main content
+	$controller->setAccessLevel(2);
 
 	if(isset($_POST['email'])) {
 		$password = md5($_POST['password'] . SALT);
