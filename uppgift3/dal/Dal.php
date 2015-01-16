@@ -65,5 +65,18 @@ class Dal {
 		$query->execute();
 	}
 
+
+	/**
+	* Removes a database object.
+	* @param $tablenme The table name.
+	* @param $idName The Primary key of the table.
+	* @param $id The identifying value.
+	*/
+	function delete($tableName, $idName, $id) {
+		$sqlQuery = "DELETE FROM $tableName WHERE $idName = '$id'";
+		$query = $this->dbh->prepare($sqlQuery);
+		$query->execute();
+	}
+
 }
 ?>

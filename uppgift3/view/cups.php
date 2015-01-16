@@ -18,18 +18,24 @@
 
 				<h1>Cuper</h1>
 
-				<ul class="cups-list">
+				<div class="cups-all">
+					<table>
+					
 					<?php
 						// This loops all the cups and display them in table view
 						$cupList = $controller->getAllCups();
 
 						foreach($cupList as $cup) {
-							echo '<li><a href="' . $controller->getURL("view/cup_details.php") . '?id=' . $cup->cupId . '">' . $cup->name . " " . $cup->year . '</a></li>';
+							echo "<tr>";
+							echo '<td class="cups-first-row"><a href="' . $controller->getURL("view/cup_details.php") . '?id=' . $cup->cupId . '">' . $cup->name . '</a></td>';
+							echo '<td>' . $cup->year . '</td>';
+							echo "</tr>";
 						}
-
 					?>
-				</ul>
 
+					</table>
+				</div>
+			
 			</div>
 
 			<?php

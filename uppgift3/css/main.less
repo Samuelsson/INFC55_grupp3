@@ -19,6 +19,7 @@
 	:: Page - Admin
 	:: Page - Cups
 	:: Page - Login
+	:: Page - Match
 	:: Page - Teams
 	:: Footer
 */
@@ -186,7 +187,7 @@
 	Page - Admin
 ============================================================================================= */
 
-	.admin-form {
+	.admin-area {
 		max-width: 800px;
 	}
 
@@ -199,6 +200,16 @@
 		list-style: none;
 
 		li {
+		}
+	}
+
+	.cups-all {
+		table {
+
+			tr td {
+				padding-top: 5px;
+				padding-left: 20px;
+			}
 		}
 	}
 
@@ -240,6 +251,36 @@
 			border-top-left-radius: 0;
 			border-top-right-radius: 0;
 		}
+	}
+
+	.logged-in,
+	.logged-out {
+
+		h1,
+		h2 {
+			text-align: center;
+		}
+	}
+
+/* ==========================================================================================
+	Page - Matches
+============================================================================================= */
+
+	.match-details {
+		font-size: 24px;
+
+		table {
+			margin-bottom: 20px;
+
+			tr td {
+				padding-top: 10px;
+				padding-left: 20px;
+			}
+		}
+	}
+
+	.match-details-first-row {
+		padding-right: 20px;
 	}
 
 
