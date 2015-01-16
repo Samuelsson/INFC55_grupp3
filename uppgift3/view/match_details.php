@@ -34,15 +34,27 @@
 		<div class="row">
 			<div class="col-md-12">
 
-			<h1>Matchresultat</h1>
-				
-				<?php echo $c . $cup->cupId . '">' . $cup->name . '</a> ' . $d . $division->divisionId . '">' . $division->name . '</a>'; ?>
+				<h1>Matchresultat</h1>
 
-				<div id="match">
-					<?php 
-						echo $t . $homeTeam->teamId. '">' . $homeTeam->name . '</a>' . $match->homeScore . ' -  '. $match->awayScore  . $t . $homeTeam->teamId .  '">' . $awayTeam->name . '</a></br>';
-					?>
+				<div class="match-details">
+
+					<table>
+						<tbody>
+							<tr>
+								<!-- Home Team -->
+								<td class="match-details-first-row"><?php echo $t . $homeTeam->teamId. '">' . $homeTeam->name . '</a>'; ?></td>
+								<td><?php echo $match->homeScore; ?></td>
+							</tr>
+							<tr>
+								<!-- Away Team -->
+								<td class="match-details-first-row"><?php echo $t . $awayTeam->teamId. '">' . $awayTeam->name . '</a>'; ?></td>
+								<td><?php echo $match->awayScore; ?></td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
+
+				<p>Ur <?php echo $d . $division->divisionId . '">' . $division->name . '</a>'; ?> spelad i <?php echo $c . $cup->cupId . '">' . $cup->name . '</a>'; ?></p>
 
 			</div>
 		</div>
